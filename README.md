@@ -63,7 +63,7 @@ then running `bundle exec jekyll serve` for local deployment.
 Minimalistic will respect the following variables, if set in your site's `_config.yml`:
 
 ```yml
-title: [Hello, World!]
+title: [Jiyoon's cloud voyage]
 description: [Growth as a Cloud Engineer]
 ```
 
