@@ -22,7 +22,11 @@ navigation:
   - name: Readme
     link: ./index.md
     sublist:
-      - name: Image
+      - name: Markdown
+        link: ./index.md#small-image
+    
+    sublist:
+      - name: Hypervisor
         link: ./index.md#small-image
   - name: Another Page
     link: ./another-page.md

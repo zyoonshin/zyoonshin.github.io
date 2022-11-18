@@ -127,12 +127,16 @@ layout: default
 ```yml
 navigation:
   - name: Readme
-    link: ./index.html
+    link: ./index.md
     sublist:
-      - name: Image
-        link: ./index.html#small-image
+      - name: Markdown
+        link: ./index.md#small-image
+    
+    sublist:
+      - name: Hypervisor
+        link: ./index.md#small-image
   - name: Another Page
-    link: ./another-page.html
+    link: ./another-page.md
   - ...
 ```
 
