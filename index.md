@@ -12,7 +12,7 @@ Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 # Naver Cloud Camp
 
-![Screenshot](https://github.com/zyoonshin/zyoonshin.github.io/tree/main/assets/img/ncc-logo.png)
+![Screenshot](https://github.com/zyoonshin/zyoonshin.github.io/blob/main/assets/img/ncc-logo.png?raw=true)
 
 
 ## Curriculum
