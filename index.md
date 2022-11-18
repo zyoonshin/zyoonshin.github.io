@@ -96,6 +96,9 @@ ex)
 ex)
 **굵기** 또는 *기울기*
 
+- Code 삽입 시
+"```"로 위아래 막기
+
 ## Hypervisor
 
 ### Header 3
@@ -154,21 +157,6 @@ end
 1.  Item three
 1.  Item four
 
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
 
 
 ### Definition lists can be used with HTML syntax.
@@ -184,10 +172,4 @@ end
 <dd>Green</dd>
 </dl>
 
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
 
-```
-The final element.
-```
