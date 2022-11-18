@@ -8,9 +8,7 @@
 [![pages-build-deployment](https://github.com/vaibhavvikas/jekyll-theme-minimalistic/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/vaibhavvikas/jekyll-theme-minimalistic/actions/workflows/pages/pages-build-deployment)
 
 
-안녕하세요!
-저는 네이버클라우드 캠프 1기 신지윤입니다.
-잘 부탁드립니다. [Jiyoon Shin](https://vaibhavvikas.github.io/jekyll-theme-minimalistic/).
+Minimalistic theme is based on gh-pages minimal theme, with navigation in the sidebar and super amazing features. Wanna see it in use in a portfolio? You can view a live demo of my portfolio at [vaibhavvikas.ml.](https://vaibhavvikas.github.io/jekyll-theme-minimalistic/).
 
 ![Screenshot](https://user-images.githubusercontent.com/28614457/179896288-56255d9e-946a-4566-aca4-85459d403ff9.png)
 
