@@ -12,7 +12,7 @@ Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 # Naver Cloud Camp
 
-![Screenshot](https://github.com/zyoonshin/zyoonshin.github.io/blob/main/assets/img/ncc-logo.png?raw=true)
+![Screenshot](https://github.com/zyoonshin/zyoonshin.github.io/blob/main/assets/img/ncc-picture.PNG?raw=true)
 
 
 ## Curriculum
@@ -64,6 +64,33 @@ Text can be **bold**, _italic_, or ~~strikethrough~~.
 # Concept
 
 ## Markdown
+
+### 마크다운(Mark Down)이란?
+- 마크업 언어의 일종
+- 온갖 태그로 범벅된 HTML 문서 등과 달리, 읽기도 쓰기도 쉬운 문서 양식을 지향
+- 파일 확장자 : .md
+ex) README.md
+
+- 장점
+  - 문법이 쉽다
+  - 관리가 쉽다
+  - 지원 가능한 플랫폼과 프로그램이다양하다
+
+- 단점
+  - 표준이 없어 사용자마다 문법이 상이하다
+  - 모든 HTML 마크업을 대신하지 못한다.
+
+- 문단 제목
+'# 1단계 제목'
+'## 2단계 제목'
+ex)
+# 1단계 제목
+## 2단계 제목
+
+- 글꼴
+'**굵기** 또는 *기울기*'
+ex)
+**굵기** 또는 *기울기*
 
 ## Hypervisor
 
