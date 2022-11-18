@@ -12,7 +12,10 @@ Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 # Naver Cloud Camp
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+### Large image
+
+![Branching](https://github.com/zyoonshin/zyoonshin.github.io/assets/img/assets/img/ncc_logo.png)
+
 
 ## Curriculum
 
@@ -58,7 +61,7 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 >   > * 클라우드 ML 활용 이상 감지 시스템 구축/
 >   > * 소상공인을 위한 AI 전화 주문 시스템 구축
 
-## Certificate
+## Certifications
 
 # Concept
 
