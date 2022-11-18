@@ -81,14 +81,18 @@ ex) README.md
   - 모든 HTML 마크업을 대신하지 못한다.
 
 - 문단 제목
-'# 1단계 제목'
-'## 2단계 제목'
+```
+# 1단계 제목
+## 2단계 제목
+```
 ex)
 # 1단계 제목
 ## 2단계 제목
 
 - 글꼴
-'**굵기** 또는 *기울기*'
+```
+**굵기** 또는 *기울기*
+```
 ex)
 **굵기** 또는 *기울기*
 
@@ -165,14 +169,6 @@ end
   - level 2 item
   - level 2 item
 - level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://github.com/vaibhavvikas/vaibhavvikas/raw/main/src/header_.png)
 
 
 ### Definition lists can be used with HTML syntax.
