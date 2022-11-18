@@ -64,7 +64,7 @@ Minimalistic will respect the following variables, if set in your site's `_confi
 
 ```yml
 title: [Jiyoon's cloud voyage]
-description: [Growth as a Cloud Engineer]
+description: [The course of growth as a Cloud Engineer]
 ```
 
 Additionally, you may choose to set the following optional variables:
