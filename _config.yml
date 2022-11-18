@@ -23,6 +23,6 @@ navigation:
     link: ./index.md
     sublist:
       - name: Image
-        link: ./index.html#small-image
+        link: ./index.md#small-image
   - name: Another Page
-    link: ./another-page.html
+    link: ./another-page.md

@@ -127,12 +127,12 @@ layout: default
 ```yml
 navigation:
   - name: Readme
-    link: ./index.html
+    link: ./index.md
     sublist:
       - name: Image
-        link: ./index.html#small-image
+        link: ./index.md#small-image
   - name: Another Page
-    link: ./another-page.html
+    link: ./another-page.md
   - ...
 ```
 
@@ -146,7 +146,7 @@ Lets say you have a file name xyz.md, you put that into the root dir. Now, add t
 ```yml
 navigation:
   - name: [Write name of your hyperlink]
-    link: ./xyz.html
+    link: ./xyz.md
 ```
 
 ### Adding Card:
