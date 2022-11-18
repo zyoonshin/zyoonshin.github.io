@@ -20,7 +20,7 @@ platforms:
 
 navigation:
   - name: Readme
-    link: ./index.html
+    link: ./index.md
     sublist:
       - name: Image
         link: ./index.html#small-image
