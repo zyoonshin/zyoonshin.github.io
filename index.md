@@ -14,7 +14,7 @@ Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 ### Large image
 
-![Branching](https://github.com/zyoonshin/zyoonshin.github.io/assets/img/assets/img/ncc_logo.png)
+![Screenshot](https://github.com/zyoonshin/zyoonshin.github.io/tree/main/assets/img/ncc_logo.png)
 
 
 ## Curriculum
