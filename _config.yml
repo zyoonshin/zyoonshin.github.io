@@ -20,9 +20,9 @@ platforms:
 
 navigation:
   - name: Readme
-    link: ./index.md
+    link: ./index.html
     sublist:
       - name: Image
-        link: ./index.md#small-image
+        link: ./index.html#small-image
   - name: Another Page
-    link: ./another-page.md
+    link: ./another-page.html
