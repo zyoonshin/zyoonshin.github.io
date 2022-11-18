@@ -1,77 +1,204 @@
-# Hello, World!
+# jekyll-theme-minimalistic
 
-안녕하세요!\
-저는 네이버클라우드 캠프 1기 신지윤입니다.\
-잘 부탁드립니다.
+[![Featured](https://img.shields.io/badge/featured%20on-JekyllThemes-red.svg)](https://jekyll-themes.com/jekyll-theme-minimalistic/)
+[![GitHub top language](https://img.shields.io/github/languages/top/vaibhavvikas/jekyll-theme-minimalistic)](#)
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/vaibhavvikas/jekyll-theme-minimalistic)](#)
+[![GitHub stars](https://img.shields.io/github/stars/vaibhavvikas/jekyll-theme-minimalistic)](https://github.com/vaibhavvikas/jekyll-theme-minimalistic/stargazers)
+[![Ruby Gem](https://github.com/vaibhavvikas/jekyll-theme-minimalistic/actions/workflows/gem-push.yml/badge.svg)](https://github.com/vaibhavvikas/jekyll-theme-minimalistic/actions/workflows/gem-push.yml)
+[![pages-build-deployment](https://github.com/vaibhavvikas/jekyll-theme-minimalistic/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/vaibhavvikas/jekyll-theme-minimalistic/actions/workflows/pages/pages-build-deployment)
 
-저는 네이버클라우드캠프 과정에서 이러한 것들을 배웠습니다. 
 
-**교육내용**
-* 클라우드 인프라의 이해
-> 세부내용
->   > * 클라우드 리터러시
->   > * 네트워크 기초
->   > * 데이터베이스 이해
->   > * 클라우드 환경 OS 이해
->   > * 컨테이너의 이해
->   > * 클라우드 배포 및 자동화
-> 클라우드 인프라 구축 프로젝트
->   > * 웹개발을 위한 DevOps Docker 개발
->   > * 리눅스 OS 기반 Auto Scaling 시스템 구축
->   > * VS Code를 활용한 페어코딩 실습 환경 구축
+Minimalistic theme is based on gh-pages minimal theme, with navigation in the sidebar and super amazing features. Wanna see it in action? You can view a live demo at [Minimalistic](https://vaibhavvikas.github.io/jekyll-theme-minimalistic/).
 
-* 클라우드 기반 웹/모바일 프로그래밍
-> 세부 내용
->   > * 웹 프로그래밍 기초, DB 구축 및 SQL 활용
->   >   > * Open API, RDBMS, NoSQL
->   >   > * Advanced SQL, JDBC/ODBC
->   > * 웹 프로그래밍 응용
->   >   > * Front End & Back End Programming
->   >   > * Web Application Programming
->   > * 웹 프로그래밍 심화
->   >   > * Advanced Front End Programming
->   >   > * Advanced Back End Programming
-> 클라우드 기반 웹/모바일 프로젝트
->   > * 미술품 경매 사이트 개발
->   > * SNS 알림 시스템 구축
->   > * URL 단축기 설계 시스템 개발
+![Screenshot](https://user-images.githubusercontent.com/28614457/179896288-56255d9e-946a-4566-aca4-85459d403ff9.png)
 
-* 인공지능과 AIaaS 프로그래밍
-> 세부 내용
->   > * 파이썬 프로그래밍
->   > * 인공지능
->   > * 클라우드 AIaaS
->   > * ML 모델 개발
->   > * 클라우드 기반 모델 생성 및 배포
-> 클라우드 기반 AI 융복합 프로젝트
->   > * 동시통역 프로그램 개발/
->   > * 얼굴인식 출입 인증 시스템 개발/
->   > * 클라우드 ML 활용 이상 감지 시스템 구축/
->   > * 소상공인을 위한 AI 전화 주문 시스템 구축
+## Features
+1. Auto light/dark mode.
+2. Syntax Highlighting for light/dark mode.
+3. Logo Support for the page.
+4. Links in Sidebar.
+5. List/Sublist in Sidebar.
+6. Fully responsive with mobile support.
+7. Logo/Favicon Support.
+8. Github-Pages Support.
+9. Card Support
+10. Under active development.
+11. And many more. 😁
 
-# 마크다운(Mark Down)이란?
-마크업 언어의 일종
-온갖 태그로 범벅된 HTML 문서 등과 달리, 읽기도 쓰기도 쉬운 문서 양식을 지향
-파일 확장자 : .md
-ex) README.md
+## Usage
 
-장점
-1. 문법이 쉽다
-2. 관리가 쉽다
-3. 지원 가능한 플랫폼과 프로그램이다양하다
+You can refer to this [Wiki Link](https://github.com/vaibhavvikas/jekyll-theme-minimalistic/wiki) if you want to use this theme for creating github pages for your own custom repository.
 
-단점
-1. 표준이 없어 사용자마다 문법이 상이하다
-2. 모든 HTML 마크업을 대신하지 못한다.
+To use the Minimalistic theme:
 
-문단 제목
-'# 1단계 제목'
-'## 2단계 제목'
-ex)
-# 1단계 제목
-## 2단계 제목
+1. Add the following line to your Gemfile
 
-글꼴
-'**굵기** 또는 *기울기*'
-ex)
-**굵기** 또는 *기울기*
+```ruby
+gem "jekyll-remote-theme"
+```
+
+then run `bundle install` to install the plugin.
+
+2. Add the following to your site's `_config.yml` to activate the plugin:
+
+```yml
+plugins:
+  - jekyll-remote-theme
+```
+
+Note: If you are using a Jekyll version less than 3.5.0, use the `gems` key instead of `plugins`.
+
+1. Add the following line to your `config.yml` to use the theme
+
+```yml
+remote_theme: vaibhavvikas/jekyll-theme-minimalistic
+```
+
+then running `bundle exec jekyll serve` for local deployment.
+
+## Customizing
+
+### Configuration variables
+
+Minimalistic will respect the following variables, if set in your site's `_config.yml`:
+
+```yml
+title: [The title of your site]
+description: [A short description of your site's purpose]
+```
+
+Additionally, you may choose to set the following optional variables:
+
+```yml
+google_analytics: [Your Google Analytics tracking ID]
+```
+
+Choose light, dark, or automatically adjusting theme based on system theme:
+
+```yml
+color-scheme: auto/light/dark
+```
+
+Specify logo for the website:
+
+```yml
+logo: /assets/img/<logo_file>
+```
+
+Enable favicon by putting a `favicon.ico` in the repo's root directory and add the following line in `config.yml`:
+
+```yml
+favicon: true
+```
+
+### Customizing Sidebar
+
+You can define a list of platforms that are linked from the sidebar in `_config.yml`:
+
+```yml
+platforms:
+  - name: GitHub
+    icon: <i class="fa-brands fa-github"></i>
+    link: https://github.com/vaibhavvikas
+  - name: LinkedIn
+    icon: <i class="fa-brands fa-linkedin"></i>
+    link: https://www.linkedin.com/in/vaibhavvikas
+  - ...
+```
+
+### Navigation
+
+You can also define, hyperlinks for specific pages or section of a pages (very helpful if creating multipage documentation or easy navigation between multiple sections). 
+
+For adding navigation do the following steps:
+
+1. Put your .md files in the root directory. and add the below text on top of pages to get it converted to html by jekyll.
+   
+```yml
+---
+layout: default
+---
+```
+
+2. Use the navigation example below to add navigation section in _config.yml file. Treat all your .md files as .html files. Currently it only supports one nesting in sublist.
+
+```yml
+navigation:
+  - name: Readme
+    link: ./index.html
+    sublist:
+      - name: Image
+        link: ./index.html#small-image
+  - name: Another Page
+    link: ./another-page.html
+  - ...
+```
+
+### Example:
+
+[Live Example](https://vaibhavvikas.github.io/jekyll-theme-minimalistic/)\
+[Code used in GitHub page](https://github.com/vaibhavvikas/jekyll-theme-minimalistic/tree/gh-pages)
+
+Lets say you have a file name xyz.md, you put that into the root dir. Now, add the text in step 1 at the top of the md file. After that for the text in _config.yml you will put it like:
+
+```yml
+navigation:
+  - name: [Write name of your hyperlink]
+    link: ./xyz.html
+```
+
+### Adding Card:
+
+Use the code template:
+```html
+<div class="card">
+  <h3>Some Title</h3>
+  <p><b>New Delhi</b>, India<br>
+  Some Text</p>
+  <a href="https://vaibhavvikas.ml/"><span class="card-link-spanner"></span></a>
+</div>
+```
+
+### Stylesheet
+
+If you'd like to add your own custom styles:
+
+1. Create a file called `/assets/css/style.scss` in your site
+2. Add the following content to the top of the file, exactly as shown:
+
+    ```scss
+    ---
+    ---
+
+    @import "{{ site.theme }}";
+    ```
+
+3. Add any custom CSS (or Sass, including imports) you'd like immediately after the `@import` line
+
+*Note: If you'd like to change the theme's Sass variables, you must set new values before the `@import` line in your stylesheet.*
+
+### Customizing Google Analytics code
+
+Google has released several iterations to their Google Analytics code over the years since this theme was first created. If you would like to take advantage of the latest code, paste it into `_includes/head-custom-google-analytics.html` in your Jekyll site.
+
+## Previewing the theme locally
+
+If you'd like to preview the theme locally (for example, in the process of proposing a change):
+
+1. Clone down the theme's repository (`git clone https://github.com/vaibhavvikas/jekyll-theme-minimalistic`)
+2. `cd` into the theme's directory
+3. Run `script/bootstrap` to install the necessary dependencies
+4. Run `bundle exec jekyll serve` to start the preview server
+5. Visit [`localhost:4000`](http://localhost:4000) in your browser to preview the theme
+
+## Running tests
+
+The theme contains a minimal test suite, to ensure a site with the theme would build successfully. To run the tests, simply run `script/cibuild`. You'll need to run `script/bootstrap` once before the test script will work.
+
+## Contributors
+
+All contributions and suggestions are welcome.
+
+## Credits:
+
+This theme was built using [Minimalist](https://github.com/BDHU/minimalist) theme by BDHU and [Minimal](https://github.com/pages-themes/minimal) by GithHub.
