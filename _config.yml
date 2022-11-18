@@ -19,8 +19,12 @@ platforms:
     link: 
 
 navigation:
-  - name: Readme
-    link: ./index.md
+  - name: Naver Cloud Camp
+    sublist:
+      - name: Curriculum
+      - name: Certificate
+  - name : Concept
+    link : ./index.md
     sublist:
       - name: Markdown
         link: ./index.md#small-image
