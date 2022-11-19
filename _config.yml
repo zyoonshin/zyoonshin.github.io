@@ -22,7 +22,6 @@ navigation:
   - name: Naver Cloud Camp
     sublist:
       - name: Curriculum
-      - name: Certifications
   - name : Concept
     link : ./index.md
     sublist:
