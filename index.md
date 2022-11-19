@@ -60,6 +60,7 @@ layout: default
 ## Certifications
 
 
+* * *
 
 # Concept
 
@@ -134,6 +135,7 @@ Code
 | B       | b       | 2       |
 | C       | c       | 3       |
 
+* * *
 
 ## Hypervisor
 
@@ -144,8 +146,6 @@ Code
 - 하이퍼바이저를 사용해 동일한 가상화 하드웨어  리소스 공유
   - 호스트 : 하이퍼바이저로 사용되는 물리 하드웨어
   - 게스트 : 리소스를 사용하는 여러VM
-
-
 
 ### 하이퍼바이저(Hypervisor) 유형
 - 유형 1
