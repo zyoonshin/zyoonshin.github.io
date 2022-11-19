@@ -123,12 +123,14 @@ Code
 
 ### 하이퍼바이저(Hypervisor) 유형
 - 유형 1
+![Attached1](https://github.com/zyoonshin/zyoonshin.github.io/blob/main/assets/img/hyper-1.png?raw=true)
   - 베어메탈(Bare Metal)
   - **호스트의 하드웨어에서 직접 구동**되어 게스트 운영 체제를 관리
   - 호스트 운영 체제 대신 VM 리소스가 하이퍼바이저에 의해 하드웨어에 직접 예약됨
   - 가상 시스템 또는 게스트 운영 체제 중 하나의 문제가 하드웨어에서 실행중인 다른 게스트 운영 체제에 영향을 미치지 않음
 
 - 유형 2
+![Attached2](https://github.com/zyoonshin/zyoonshin.github.io/blob/main/assets/img/hyper-2.png?raw=true)
   - 호스팅(Hosted)
   - **기존의 운영 체제에서 소프트웨어 레이어 또는 애플리케이션으로서 구동됨**
   - 호스트 운영 체제에서 게스트 운영 체제를 추상화하는 방식으로 작동
