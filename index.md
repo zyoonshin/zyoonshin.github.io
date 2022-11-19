@@ -57,8 +57,6 @@ layout: default
     - 클라우드 ML 활용 이상 감지 시스템 구축
     - 소상공인을 위한 AI 전화 주문 시스템 구축
 
-## Certifications
-
 
 * * *
 
@@ -196,20 +194,6 @@ end
 ### There's a horizontal rule below this.
 
 * * *
-
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
 
 
 
