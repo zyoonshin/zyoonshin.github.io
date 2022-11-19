@@ -2,8 +2,6 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
-
 [About me](./another-page.html).
 
 안녕하세요!\
@@ -83,6 +81,28 @@ ex) README.md
     - 모든 HTML 마크업을 대신하지 못한다.
 
 ### 사용 방법
+- 글씨체
+  - 굵은 글씨
+  ```
+  **굵은 글씨**
+  ```
+  ex)
+  **굵은 글씨**
+
+  - 기울기
+  ```
+  _기울기_
+  ```
+  ex)
+  _기울기_
+
+  - 취소선
+  ```
+  ~~취소선~~
+  ```
+  ex)
+  ~~취소선~~
+
 - 문단 제목
 ```
 # 1단계 제목
@@ -107,6 +127,12 @@ Code
 ```"
 ```
 
+- 표
+| x       | y       | z       |
+|:--------|:--------|:--------|
+| A       | a       | 1       |
+| B       | b       | 2       |
+| C       | c       | 3       |
 
 
 ## Hypervisor
@@ -124,6 +150,7 @@ Code
 ### 하이퍼바이저(Hypervisor) 유형
 - 유형 1
 ![Attached1](https://github.com/zyoonshin/zyoonshin.github.io/blob/main/assets/img/hyper-1.png?raw=true)
+  - _출처 : https://blog.resellerclub.com/what-is-a-hypervisor-and-how-does-it-work/_
   - 베어메탈(Bare Metal)
   - **호스트의 하드웨어에서 직접 구동**되어 게스트 운영 체제를 관리
   - 호스트 운영 체제 대신 VM 리소스가 하이퍼바이저에 의해 하드웨어에 직접 예약됨
@@ -131,6 +158,7 @@ Code
 
 - 유형 2
 ![Attached2](https://github.com/zyoonshin/zyoonshin.github.io/blob/main/assets/img/hyper-2.png?raw=true)
+  - _출처 : https://blog.resellerclub.com/what-is-a-hypervisor-and-how-does-it-work/_
   - 호스팅(Hosted)
   - **기존의 운영 체제에서 소프트웨어 레이어 또는 애플리케이션으로서 구동됨**
   - 호스트 운영 체제에서 게스트 운영 체제를 추상화하는 방식으로 작동
@@ -155,18 +183,6 @@ GitHubPages::Dependencies.gems.each do |gem, version|
   s.add_dependency(gem, "= #{version}")
 end
 ```
-
-#### Header 4
-
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-
-##### Header 5
-
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
 
 ###### Header 6
 
