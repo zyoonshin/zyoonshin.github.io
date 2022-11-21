@@ -1,6 +1,9 @@
 ---
 layout: default
 ---
+
+# Concept
+
 ## Markdown
 
 ### 마크다운(Mark Down)이란?
