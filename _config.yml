@@ -29,6 +29,6 @@ navigation:
         link: [markdown](markdown.md)
     
       - name: Hypervisor
-        link: ./index.md#small-image
+        link: [hypervisor](hypervisor.md)
   - name: Another Page
     link: ./another-page.md
