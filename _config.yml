@@ -23,7 +23,7 @@ navigation:
     sublist:
       - name: Curriculum
   - name : Concept
-    link : ./index.md
+    link : [curriculum](curriculum.md)
     sublist:
       - name: Markdown
         link: [markdown](markdown.md)
