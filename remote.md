@@ -42,4 +42,22 @@ origin  https://github.com/zyoonshin/bitcamp-ncp (fetch)
 origin  https://github.com/zyoonshin/bitcamp-ncp (push)
 ```
 
+## Branch
+### Branch 생성
+
+git branch [branch name]
+
+```
+[vagrant@host1 bitcamp-ncp]$ git branch [branch name]
+```
+### Branch 확인
+git branch
+*표시 있는 branch가 현재 작업중인 branch
+
+```
+[vagrant@host1 bitcamp-ncp]$ git branch
+* b1
+  main
+```
+
 
