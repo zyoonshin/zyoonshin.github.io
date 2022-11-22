@@ -63,7 +63,15 @@ git branch
 ### 작업중인 branch 변경
 git checkout [branch name]
 
+
 ```
 git checkout [branch name]
 git branch <- 변경된 branch 확인 가능
+```
+
+### 생성된 branch를 main에 merge
+git merge [branch name]
+
+```
+git merge [branch name]
 ```
