@@ -27,8 +27,9 @@ navigation:
     sublist:
       - name: Markdown
         link: [markdown](markdown.md)
-    
       - name: Hypervisor
         link: [hypervisor](hypervisor.md)
+      - name: Remote
+        link: [remote](remote.md)
   - name: Another Page
     link: ./another-page.md
