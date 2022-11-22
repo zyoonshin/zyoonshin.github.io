@@ -23,13 +23,13 @@ navigation:
     sublist:
       - name: Curriculum
   - name : Concept
-    link : [curriculum](curriculum.md)
+    link : [curriculum](index.md#curriculum)
     sublist:
       - name: Markdown
-        link: [markdown](markdown.md)
+        link: [markdown](index.md#markdown)
       - name: Hypervisor
         link: [hypervisor](hypervisor.md)
       - name: Remote
-        link: [remote](remote.md)
+        link: [remote](index.md#hypervisor)
   - name: Another Page
     link: ./another-page.md
