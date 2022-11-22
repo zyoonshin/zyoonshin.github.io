@@ -60,4 +60,10 @@ git branch
   main
 ```
 
+### 작업중인 branch 변경
+git checkout [branch name]
 
+```
+git checkout [branch name]
+git branch <- 변경된 branch 확인 가능
+```
