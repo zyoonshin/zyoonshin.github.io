@@ -32,3 +32,14 @@ user.name=user.name
 user.email=user.email
 ```
 
+## 로컬 저장소 추가
+### 원격 저장소 추가
+
+```
+[vagrant@host1 ~]$ git remote add origin https://github.com/zyoonshin/bitcamp-ncp <- 원격 저장소 추가
+[vagrant@host1 bitcamp-ncp]$ git remote -v <- 원격 저장소 확인
+origin  https://github.com/zyoonshin/bitcamp-ncp (fetch)
+origin  https://github.com/zyoonshin/bitcamp-ncp (push)
+```
+
+
