@@ -24,12 +24,12 @@ navigation:
     sublist:
       - name: Curriculum
   - name : Concept
-    link : [curriculum](index.md#curriculum)
+    link : [curriculum](index.html#curriculum)
     sublist:
       - name: Markdown
-        link: [markdown](index.md#markdown)
+        link: [markdown](index.html#markdown)
       - name: Hypervisor
-        link: [hypervisor](hypervisor.md)
+        link: [hypervisor](hypervisor.html)
       - name: Remote
         link: [remote](index.md#hypervisor)
   - name: Another Page
