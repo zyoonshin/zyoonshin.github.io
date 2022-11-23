@@ -8,7 +8,7 @@
 [![pages-build-deployment](https://github.com/vaibhavvikas/jekyll-theme-minimalistic/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/vaibhavvikas/jekyll-theme-minimalistic/actions/workflows/pages/pages-build-deployment)
 
 
-Minimalistic theme is based on gh-pages minimal theme, with navigation in the sidebar and super amazing features. Wanna see it in use in a portfolio? You can view a live demo of my portfolio at [vaibhavvikas.ml](https://vaibhavvikas.github.io/jekyll-theme-minimalistic/).
+Minimalistic theme is based on gh-pages minimal theme, with navigation in the sidebar and super amazing features. Wanna see it in action? You can view a live demo at [Minimalistic](https://vaibhavvikas.github.io/jekyll-theme-minimalistic/).
 
 ![Screenshot](https://user-images.githubusercontent.com/28614457/179896288-56255d9e-946a-4566-aca4-85459d403ff9.png)
 
@@ -99,10 +99,10 @@ You can define a list of platforms that are linked from the sidebar in `_config.
 platforms:
   - name: GitHub
     icon: <i class="fa-brands fa-github"></i>
-    link: https://github.com/zyoonshin
+    link: https://github.com/vaibhavvikas
   - name: LinkedIn
     icon: <i class="fa-brands fa-linkedin"></i>
-    link: 
+    link: https://www.linkedin.com/in/vaibhavvikas
   - ...
 ```
 
@@ -125,15 +125,12 @@ layout: default
 ```yml
 navigation:
   - name: Readme
-    link: ./index.md
+    link: ./index.html
     sublist:
-      - name: Markdown
-        link: ./index.md#small-image
-
-      - name: Hypervisor
-        link: ./index.md#small-image
+      - name: Image
+        link: ./index.html#small-image
   - name: Another Page
-    link: ./another-page.md
+    link: ./another-page.html
   - ...
 ```
 
