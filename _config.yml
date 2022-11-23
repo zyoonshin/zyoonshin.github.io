@@ -5,8 +5,6 @@ description: The course of growth as a Cloud Engineer
 favicon: true
 color-scheme: auto
 
-
-
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
@@ -20,5 +18,19 @@ platforms:
     icon: <i class="fa-brands fa-linkedin"></i>
     link: 
 
-
+navigation:
+  - name: Naver Cloud Camp
+    sublist:
+      - name: Curriculum
+  - name : Concept
+    link : 
+    sublist:
+      - name: Markdown
+        link: 
+      - name: Hypervisor
+        link: 
+      - name: Remote
+        link: 
+  - name: Another Page
+    link: ./another-page.md
   
