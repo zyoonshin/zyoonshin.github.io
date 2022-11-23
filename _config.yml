@@ -1,9 +1,10 @@
-title: Jiyoon's cloud voyage
+title: [Jiyoon's cloud voyage](https://zyoonshin.github.io/)
 logo: /assets/img/logo.jpg
 email: dwsrh03@gmail.com
 description: The course of growth as a Cloud Engineer
 favicon: true
 color-scheme: auto
+
 
 plugins:
   - jekyll-sitemap
