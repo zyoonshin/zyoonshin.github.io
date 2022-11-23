@@ -26,9 +26,9 @@ navigation:
     link : 
     sublist:
       - name : Markdown
-        link : .index.md#markdown
+        link : index.md#markdown
       - name : Hypervisor
-        link : (./hypervisor.md)
+        link : ./hypervisor.md
       - name : Remote
         link : (./remote.md)
   - name : Linux
