@@ -11,11 +11,14 @@ layout: default
 # Naver Cloud Camp
 ## Curriculum
 
-
+----------------------------
 
 # Concepts
 ## [Markdown](./markdown.md)
-## Hypervisor
+## [Hypervisor](./hypervisor.md)
+## [Remote](./remote.md)
+
+--------------------------
 
 # Linux
 ## 파일 탐색 기본 명령어
