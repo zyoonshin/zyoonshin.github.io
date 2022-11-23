@@ -15,7 +15,6 @@ layout: default
 [vagrant@host1 ~]$ git config --global user.email "user.email"
 ```
 
-
 ### 사용자 인증 정보 확인
 
 ```
@@ -32,6 +31,8 @@ user.name=user.name
 user.email=user.email
 ```
 
+-----------------------------------
+
 ## 로컬 저장소 추가
 ### 원격 저장소 추가
 
@@ -41,6 +42,8 @@ user.email=user.email
 origin  https://github.com/zyoonshin/bitcamp-ncp (fetch)
 origin  https://github.com/zyoonshin/bitcamp-ncp (push)
 ```
+
+-----------------------------------
 
 ## Branch
 ### Branch 생성
