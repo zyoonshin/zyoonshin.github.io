@@ -26,7 +26,7 @@ navigation:
     link : 
     sublist:
       - name: Markdown
-        link: [markdown](./markdown.md).
+        link: [markdown](/.index.html#markdown).
       - name: Hypervisor
         link: 
       - name: Remote
