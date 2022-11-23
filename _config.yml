@@ -13,7 +13,7 @@ plugins:
 platforms:
   - name: GitHub
     icon: <i class="fa-brands fa-github"></i>
-    link: https://github.com/zyoonshin/zyoonshin.github.io
+    link: https://zyoonshin.github.io/
   - name: LinkedIn
     icon: <i class="fa-brands fa-linkedin"></i>
     link: 
