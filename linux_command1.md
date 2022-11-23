@@ -15,6 +15,7 @@ layout: default
 /home/vagrant/git/bitcamp-study
 ```
 
+-----------------------------------
 
 ### cd
 * Change Directory 의 약어
@@ -25,6 +26,8 @@ layout: default
 [vagrant@host1 bitcamp-study]$ pwd
 /home/vagrant/git/bitcamp-study <- git 폴더 안의 bitcamp-study로 이동
 ```
+
+-----------------------------------
 
 ### ls
 * list의 줄임말
@@ -43,8 +46,6 @@ docs  README.md
 * -r : 출력 결과를 내림차순으로 정렬
 * -t : 출력 결과를 파일이 수정된 시간을 기준으로 정렬
 
-
-
 ```
 [vagrant@host1 bitcamp-study]$ ls -al <- 옵션을 한번에 여러개 줄수도 있음
 total 8
@@ -55,6 +56,8 @@ drwxrwxr-x. 8 vagrant vagrant  163 Nov 21 01:54 .git
 -rw-rw-r--. 1 vagrant vagrant 3268 Nov 21 01:54 .gitignore
 -rw-rw-r--. 1 vagrant vagrant 1378 Nov 21 01:54 README.md
 ```
+
+-----------------------------------
 
 ### file
 
@@ -83,6 +86,8 @@ file: could not find any magic files! <- 매직파일 X
 [vagrant@host1 git]$ file bitcamp-study <- 파일 종류 확인
 bitcamp-study: directory
 ```
+
+-----------------------------------
 
 ### less
 * 파일 내용을 확인하는 명령어 
