@@ -134,28 +134,27 @@ ex) mv /user/jtaewu/test.txt /user/guest/new.txt
 0 directories, 7 files
 ```
 
-### Branch 확인
-git branch
-*표시 있는 branch가 현재 작업중인 branch
+### ln
+- Link 의 줄임말
+- 리눅스 파일시스템에서 링크파일을 만드는 명령어
 
-```
-[vagrant@host1 bitcamp-ncp]$ git branch
-* b1
-  main
-```
+- 심볼릭링크 (Symbolic Link)
+  - 단순히 원본파일을 가리키도록 링크만 시켜둔 것
+  - MS의 윈도우시스템에서 흔히 사용하는 '바로가기' 같은 것이며, 원본파일을 가리키고만 있음
+  - 원본파일이 삭제되어 존재하지 않을 경우, 링크파일은 깜박거리면서 링크파일의 원본파일이 없다는 것을 줌
 
-### 작업중인 branch 변경
-git checkout [branch name]
+- 하드링크 (Hard Link)
+  - 원본파일과 다른 이름으로 존재하는 동일한 파일
+  - 원본파일과 동일한 내용의 다른 파일
+  - 원본파일과 링크파일 두개가 서로 다른 파일이기 때문에 둘 중 하나를 삭제하더라도 나머지 하나는 그대로 남아 있음
+  - 원본파일의 내용이 변경될 경우, 링크파일의 내용 또한 자동으로 변경됨
 
-
-```
-git checkout [branch name]
-git branch <- 변경된 branch 확인 가능
-```
-
-### 생성된 branch를 main에 merge
-git merge [branch name]
-
-```
-git merge [branch name]
-```
+#### 자주 사용하는 옵션
+- --backup[=CONTROL] : 대상파일이 이미 존재할 경우에 백업파일을 만든 후에 링크파일 생성
+- -b : 링크파일 생성시에 대상파일이 이미 존재하면 백업파일을 만든 후에 링크파일을 생성
+- -d : 디렉토리에 대한 하드링크파일생성을 가능하게 함. 단 root 권한으로 수행하더라도 시스템의 권한제한으로 인하여 실패할 가능성이 높음. (-F 와 --directory 는 -d 와 동일함)
+- -f : 대상파일이 존재할 경우에 대상파일을 지우고 링크파일을 생성
+- -i : 대상파일이 존재할 경우에 대상파일을 지울것인가를 확인요청 (--interactive 와 동일)
+- -s : 심볼릭 링크파일을 생성
+- -S : 백업파일 생성시에 원하는 접미사(suffix)를 지정할 수 있음
+- -t, --target-directory=DIRECTORY : 링크파일을 생성할 디렉토리를 지정
