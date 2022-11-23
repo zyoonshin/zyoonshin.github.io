@@ -23,7 +23,7 @@ layout: default
 # Linux
 ## [파일 탐색 기본 명령어](./linux_command1.md)
 ## [파일/디렉토리 조작 명령어](./linux_command2.md)
-## 명령어를 다루는 명령어
+## [명령어를 다루는 명령어](./linux_command3.md)
 
 * * *
 
