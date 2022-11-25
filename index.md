@@ -28,6 +28,7 @@ layout: default
 -------------------------------
 
 # [HTML](./html_structure.html)
+# [HTML2](./html_structure_2.html)
 
 
 
