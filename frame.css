@@ -1,0 +1,23 @@
+* {  
+  margin:0;  /* 브라우저 기본 마진 리셋 */
+  padding:0;  /* 브라우저 기본 패딩 리셋 */
+  box-sizing: border-box;  /* 테두리까지 포함해서 박스 모델 너비로 계산 */
+}
+#container {
+  width:1200px;   /* 내용 전체의 너비 */
+  margin:20px auto;  /* 내용을 화면 가운데 배치하도록 좌우 마진을 auto로 */
+}
+#header{
+  width:100%;  /* 부모 요소의 너비와 똑같게 */
+  height:120px;  /* 헤더의 높이 */
+  background-color:rgba(162, 0, 255, 0.43);
+}
+#sidebar{
+  width:300px;  /* 사이드바의 너비 */
+  height:2300px;
+  background-color:rgba(162, 0, 255, 0.16);
+  float:right;  /* 왼쪽으로 플로팅 */
+}
+#contents {
+  width:900px;  /* 본문의 너비 */
+}

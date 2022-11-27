@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>HTML/CSS</title>
+  <link rel="stylesheet" href="frame.css">
   <style>
     img {
-      float: left;
       margin: 30px;
     }
 
@@ -29,10 +29,10 @@
       border: 1px solid #ccc;
     }
   </style>
-
 </head>
 <body>
-  <div class="header">
+  <div id="container">
+    <header id="header">
     <h1>Jiyoon's cloud voyage</h1>
     <h2>HTML/CSS</h2>
     <div class="Concept">
@@ -41,13 +41,28 @@
         <li><a href="#css_subject">CSS</a></li>
       </ul>
     </div>
-  </div>
+    </header>
+    <aside id="sidebar">
+      <section>
+            <h1>Naver Cloud Camp</h1>
+              <a href="https://zyoonshin.github.io/curriculum.html">Curriculum</a>
+            <h1>Concept</h1>
+              <a href="https://zyoonshin.github.io/markdown.html">Markdown</a><br>
+              <a href="https://zyoonshin.github.io/hypervisor.html">Hypervisor</a><br>
+              <a href="https://zyoonshin.github.io/remote.html">Remote</a>
+            <h1>Linux</h1>
+              <a href="https://zyoonshin.github.io/linux_command1.html">파일 탐색 기본 명령어</a><br>
+              <a href="https://zyoonshin.github.io/linux_command2.html">파일/디렉토리 조작 명령어</a><br>
+              <a href="https://zyoonshin.github.io/linux_command3.html">명령어를 다루는 명령어</a>
+      </section>				
+    </aside>
     <main class="contents">
       <section id="html">
+        <br>
         <h2>HTML</h2>                  
         <div class="html detail"> 
-          <img src="assets/img/HTML5_logo.png" alt="HTML5" width="150" height="200">                            
-          <b><p><br><h3>HTML이란?</h3></p></b> 
+          <img src="assets/img/HTML5_logo.png" alt="HTML5" width="120" height="150">                            
+          <b><p><h3>HTML이란?</h3></p></b> 
           <ul>
             <li>HTML</li>
             <ul class="html">
@@ -59,15 +74,14 @@
             </ul>
           </ul>
         </div>
-        <br><br>
         <div class="semancit">
-          <img src="assets/img/html_structure.png" alt="HTML5" width="200" height="300">     
-          <br>
+          <img src="assets/img/html_structure.png" alt="HTML5" width="150" height="200">
           <h3>시맨틱태그란?</h3>
           <ul>
             <li>시맨틱(semantic)이란 '의미론적인', '의미가 통하는' 이란 뜻</li>
             <li>HTML에서 태그 이름만 봐도 어떤 역할을 하는지 쉽게 알 수 있는 문서 구조 태그</li>
           </ul> 
+          <br>
           <h4>시맨틱 태그의 용도</h4>
           <ul>
             <li>header</li>
@@ -77,7 +91,7 @@
               <li>주로 검색창이나 사이트 메뉴를 삽입함</li>
             </ul>
           </ul>
-          <ul>
+          <ul><br>
             <li>main</li>
             <ul class="main">
               <li>웹 문서에서 핵심이 되는 내용 삽입</li>
@@ -86,7 +100,7 @@
               <li>웹 문서에서 한 번만 사용</li>
             </ul>
           </ul>
-          <ul>
+          <ul><br>
             <li>footer</li>
             <ul class="footer">
               <li>웹 문서에서 맨 아래쪽에 있는 푸터 영역 생성</li>
@@ -94,7 +108,7 @@
               <li>header 태그를 비롯하여 section, article등 다른 시맨틱 태그 모두 사용 가능하며, 이를 이용하여 푸터 안에 다양한 정보 삽입</li>
             </ul>
           </ul>
-          <ul>
+          <ul><br>
             <li>nav</li>
             <ul class="nav">
               <li>웹 문서 안에서 다른 위치로 연결하거나 다른 웹 문서로 연결하는 링크를 만듦</li>
@@ -103,22 +117,22 @@
               <li><nav> 태그를 여러 개 사용할 경우 각각 id 속성을 지정하면 내비게이션마다 다른 스타일 적용 가능</li>
             </ul>
           </ul>
-          <ul>
+          <ul><br>
             <li>section</li>
             <ul class="section">
               <li>콘텐츠 영역</li>
               <li>몇 개의 콘텐츠를 묶는 용도로 사용</li>
             </ul>
           </ul>
-          <ul>
+          <ul><br>
             <li>article</li>
             <ul class="article">
               <li>웹에서 실제로 보여주고 싶은 내용 삽입</li>
               <li>독립된 콘텐츠로 사용</li>
-              <li>문서 안에 <article> 태그를 여러 개 사용할 수 있고, 이 안에 <section> 태그 삽입 가능</li>
+              <li>문서 안에 article 태그를 여러 개 사용할 수 있고, 이 안에 section 태그 삽입 가능</li>
             </ul>
           </ul>
-          <ul>
+          <ul><br>
             <li>aside</li>
             <ul class="aside">
               <li>본문 내용 외의 왼쪽이나 오른쪽, 혹은 아래쪽에 사이드 바 생성</li>
@@ -140,7 +154,7 @@
               <li>W3C의 표준</li>
               <li>레이아웃과 스타일을 정의할 때의 자유도 높음</li>
               <li>기본 파일명 : style.css</li>
-              <li>CSS3의 경우 그림자 효과, 그라데이션, 변형 등 그래픽 편집 프로그램으로 제작한 이미지를 대체할 수 있는 기능이 추가됨</li>
+              <li>CSS3의 경우 그래픽 편집 프로그램으로 제작한 이미지를 대체할 수 있는 기능이 추가됨</li>
               <li>다양한 애니메이션 기능이 추가되어 어도비 플래시를 어느 정도 대체</li>
             </ul>
           </ul>
@@ -204,10 +218,10 @@
             <ul class="stylerank">
               <li>얼마나 중요한가 ? <br>
                 : 사용자 스타일 → 제작자 스타일 → 브라우저 기본 스타일
-              </li>
+              </li><br>
               <li>적용 범위는 어디까지인가? <br>
                 : !important → 인라인 스타일 → id 스타일 → 클래스 스타일 → 타입 스타일
-              </li>
+              </li><br>
               <li>소스 작성 순서는 어떠한가? <br>
                 : 나중에 작성한 스타일이 먼저 작성한 스타일을 덮어 씀
               </li>
@@ -216,39 +230,6 @@
         </div>
       </section>
     </main>
-    <aside>
-      <section>
-        <h1>Jiyoon's cloud voyage</h1>
-        <article>
-          <ul>
-            <li>Naver Cloud Camp</li>
-            <ul class="inside1">
-              <li>Curriculum</li>
-            </ul>
-          </ul>
-        </article>
-        <article>
-          <ul>
-            <li>Concept</li>
-            <ul class="inside2">
-              <li>Markdown</li>
-              <li>Hypervisor</li>
-              <li>Remote</li>
-            </ul>
-          </ul>
-        </article>
-        <article>
-          <ul>
-            <li>Linux</li>
-            <ul class="inside3">
-              <li>파일 탐색 기본 명령어</li>
-              <li>파일/디렉토리 조작 명령어</li>
-              <li>명령어를 다루는 명령어</li>
-            </ul>
-          </ul>
-        </article>
-      </section>
-    </aside>
   </div> 
 </body>
 </html>
