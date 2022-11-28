@@ -84,7 +84,12 @@
 				        <img class="image_html,css" src="assets/images/blog/html,css.png" alt="html,css">
 				        <figcaption class="mt-2 text-center image-caption">Image Credit: <a class="theme-link" href="https://velog.io/@codedot/TIL28-HTML-CSS" target="_blank">TIL(28) HTML, CSS</a></figcaption>
 				    </figure>
-				    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. </p>
+				    <p>웹 문서에서 스타일이란 HTML 문서에서 자주 사용하는 글꼴이나 색상, 정렬, 각 요소의 배치 방법과
+						같이 문서의 겉모습을 결정짓는 것을 가리킵니다. HTML로는 웹 사이트의 내용을 나열하고
+					 CSS로는 웹 문서의 디자인을 구성합니다. 기존 HTML 문서는 PC의 웹 브라우저 화면이 기본으로 되어
+					 있어서 인쇄하려면 용지에 맞게 따로 작성해야 했습니다. 또한 모바일용 홈페이지가 필요할 경우에도
+					 스마트폰 브라우저에 적합하게 문서를 따로 만들어야 했죠. 하지만 CSS를 이용하면 HTML로 작성한
+					 내용은 그대로 두고 대상 기기에 맞게 CSS만 바꿔 주면 여러 기기에서 볼 수 있습니다. </p>
 				    
 				    <h3 class="html concept">HTML</h3>
 					<img src="assets/images/blog/HTML5_logo.png" alt="HTML5">
@@ -176,14 +181,70 @@
 					<img src="assets/images/blog/html_structure.png" alt="semantic_structure">
 
 
-				    
-				    <h3 class="mt-5 mb-3">Video Example</h3>
-				    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. </p>
-
-				    <div class="ratio ratio-16x9">
-					   <iframe width="560" height="315" src="https://www.youtube.com/embed/1nxSE0R27Gg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>					
-					</div>
-				   
+					<div class="css_info">   
+						<br><h3>시맨틱태그란?</h3>
+						<h4>스타일 시트</h4>
+						<table class="type01">
+						  <tr>
+							<th scope="row">브라우저 기본 <br>스타일</th>
+							<td>웹 브라우저에 웹 문서를 표시할 때 브라우저에서 기본으로 사용하는 스타일</td>
+						  </tr>
+						  <tr>
+							<th scope="row">인라인 스타일</th>
+							<td>style 속성을 사용해 필요한 요소에 스타일을 직접 지정</td>
+						  </tr>
+						  <tr>
+							<th scope="row">내부 스타일 시트</th>
+							<td>문서 앞부분에 문서에서 사용하는 스타일을 모아서 함께 정의하고 관리</td>
+						  </tr>
+						  <tr>
+							<th scope="row">외부 스타일 시트</th>
+							<td>문서에서 사용하는 스타일을 모아서 따로 파일로 저장한 후 연결해서 사용</td>
+						  </tr>
+						</table>
+						
+						<h4>CSS 기본 선택자</h4>
+						<table class="type01">
+						  <tr>
+							<th scope="row">전체 선택자</th>
+							<td>문서의 모든 요소에 스타일 적용</td>
+							<td> * { margin : 0; }</td>
+						  </tr>
+						  <tr>
+							<th scope="row">타입 선택자</th>
+							<td>특정 태그를 사용한 모든 요소에서 스타일 적용</td>
+							<td> p { font-style : italic; }</td>
+						  </tr>
+						  <tr>
+							<th scope="row">클래스 선택자</th>
+							<td>특정 부분만 선택해서 문서 안에 여러 번 적용</td>
+							<td> .bg { background-color : #ddd; }</td>
+						  </tr>
+						  <tr>
+							<th scope="row">id 선택자</th>
+							<td>특정 부분만 선택해서 문서 안에서 한 번만 적용</td>
+							<td> #container { width : 500px; }</td>
+						  </tr>
+						  <tr>
+							<th scope="row">그룹 선택자</th>
+							<td>여러 요소에 같은 스타일을 적용할 때 사용</td>
+							<td> h1, h2 { text-align : center; }</td>
+						  </tr>
+						</table>          
+					  </div>
+					  <div class="css_rank">   
+						<h3>시맨틱태그란?</h3>
+						<h4><br>스타일 우선 순위</h4>
+							<li>얼마나 중요한가 ? <br>
+							  &nbsp;&nbsp;  : 사용자 스타일 → 제작자 스타일 → 브라우저 기본 스타일
+							</li><br>
+							<li>적용 범위는 어디까지인가? <br>
+							  &nbsp;&nbsp; : !important → 인라인 스타일 → id 스타일 → 클래스 스타일 → 타입 스타일
+							</li><br>
+							<li>소스 작성 순서는 어떠한가? <br>
+							  &nbsp;&nbsp; : 나중에 작성한 스타일이 먼저 작성한 스타일을 덮어 씀
+							</li>
+					  </div>
 			    </div>
 				    
 				
