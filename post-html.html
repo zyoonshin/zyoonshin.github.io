@@ -82,7 +82,7 @@
 			    <div class="blog-post-body">
 				    <figure class="blog-banner">
 				        <img class="image_html,css" src="assets/images/blog/html,css.png" alt="html,css">
-				        <figcaption class="mt-2 text-center image-caption">Image Credit: <a class="theme-link" href="https://velog.io/@codedot/TIL28-HTML-CSS" target="_blank">made4dev.com (Premium Programming T-shirts)</a></figcaption>
+				        <figcaption class="mt-2 text-center image-caption">Image Credit: <a class="theme-link" href="https://velog.io/@codedot/TIL28-HTML-CSS" target="_blank">TIL(28) HTML, CSS</a></figcaption>
 				    </figure>
 				    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. </p>
 				    
@@ -99,73 +99,79 @@
 						</ul>
 					</ul>
 
-					<div class="semancit">
-						<img src="assets/images/blog/html_structure.png" alt="HTML5">
-						<h3>시맨틱태그란?</h3>
-						<ul>
-						  <li>시맨틱(semantic)이란 '의미론적인', '의미가 통하는' 이란 뜻</li>
-						  <li>HTML에서 태그 이름만 봐도 어떤 역할을 하는지 쉽게 알 수 있는 문서 구조 태그</li>
-						</ul> 
-						<br>
-						<h4>시맨틱 태그의 용도</h4>
-						<ul>
-						  <li>header</li>
-						  <ul class="header">
+					<h3 class="semancit">시맨틱태그란?</h3>
+					<img src="assets/images/blog/html_structure.png" alt="semantic_structure">
+					<ul>
+						<li>시맨틱(semantic)이란 '의미론적인', '의미가 통하는' 이란 뜻</li>
+						<li>HTML에서 태그 이름만 봐도 어떤 역할을 하는지 쉽게 알 수 있는 문서 구조 태그</li>
+					</ul> 
+					<br>
+					<h4>시맨틱 태그의 용도</h4>
+					<ul>
+						<li>header</li>
+						<ul class="header">
 							<li>헤더 영역을 의미</li>
 							<li>주로 맨 위쪽이나 왼쪽에 존재</li>
 							<li>주로 검색창이나 사이트 메뉴를 삽입함</li>
-						  </ul>
 						</ul>
-						<ul><br>
-						  <li>main</li>
-						  <ul class="main">
-							<li>웹 문서에서 핵심이 되는 내용 삽입</li>
+					</ul>
+					<br>
+					<ul>
+					<li>main</li>
+						<ul class="main">
+						<li>웹 문서에서 핵심이 되는 내용 삽입</li>
 							<li>웹 문서마다 다르게 보여주는 내용으로 구성</li>
 							<li>페이지마다 똑같이 들어간 정보는 삽입 X</li>
 							<li>웹 문서에서 한 번만 사용</li>
-						  </ul>
 						</ul>
-						<ul><br>
-						  <li>footer</li>
-						  <ul class="footer">
+					</ul>
+					<br>
+					<ul>
+					<li>footer</li>
+						<ul class="footer">
 							<li>웹 문서에서 맨 아래쪽에 있는 푸터 영역 생성</li>
 							<li>사이트 제작 정보나 저작권 정보, 연락처 등 삽입</li>
 							<li>header 태그를 비롯하여 section, article등 다른 시맨틱 태그 모두 사용 가능하며, 이를 이용하여 푸터 안에 다양한 정보 삽입</li>
-						  </ul>
 						</ul>
-						<ul><br>
-						  <li>nav</li>
-						  <ul class="nav">
+					</ul>
+					<br>
+					<ul>
+						<li>nav</li>
+						<ul class="nav">
 							<li>웹 문서 안에서 다른 위치로 연결하거나 다른 웹 문서로 연결하는 링크를 만듦</li>
 							<li>흔히 내비게이션을 만들 때 사용</li>
 							<li>웹 문서의 위치에 영향 받지 않음</li>
-							<li><nav> 태그를 여러 개 사용할 경우 각각 id 속성을 지정하면 내비게이션마다 다른 스타일 적용 가능</li>
-						  </ul>
+							<li>nav 태그를 여러 개 사용할 경우 각각 id 속성을 지정하면 내비게이션마다 다른 스타일 적용 가능</li>
 						</ul>
-						<ul><br>
-						  <li>section</li>
-						  <ul class="section">
+					</ul>
+					<br>
+					<ul>
+						<li>section</li>
+						<ul class="section">
 							<li>콘텐츠 영역</li>
 							<li>몇 개의 콘텐츠를 묶는 용도로 사용</li>
-						  </ul>
 						</ul>
-						<ul><br>
-						  <li>article</li>
-						  <ul class="article">
+					</ul>
+					<br>
+					<ul>
+						<li>article</li>
+						<ul class="article">
 							<li>웹에서 실제로 보여주고 싶은 내용 삽입</li>
 							<li>독립된 콘텐츠로 사용</li>
 							<li>문서 안에 article 태그를 여러 개 사용할 수 있고, 이 안에 section 태그 삽입 가능</li>
-						  </ul>
 						</ul>
-						<ul><br>
-						  <li>aside</li>
-						  <ul class="aside">
+					</ul>
+					<br>
+					<ul>
+						<li>aside</li>
+						<ul class="aside">
 							<li>본문 내용 외의 왼쪽이나 오른쪽, 혹은 아래쪽에 사이드 바 생성</li>
 							<li>필수 요소가 아니므로 필요한 경우에만 사용</li>
-						  </ul>
 						</ul>
-					  </div>
+					</ul>
 
+					<h3 class="semancit">시맨틱태그란?</h3>
+					<img src="assets/images/blog/html_structure.png" alt="semantic_structure">
 
 
 				    
