@@ -5,15 +5,6 @@ layout: default
 
 ## 파일 탐색 기본 명령어
 
-### pwd
-* Print Working Directory 의 약어
-* 현재 어떤 디렉토리경로에 있는가를 절대경로로 표시하는 명령어
-
-
-```
-[vagrant@host1 bitcamp-study]$ pwd
-/home/vagrant/git/bitcamp-study
-```
 
 -----------------------------------
 
