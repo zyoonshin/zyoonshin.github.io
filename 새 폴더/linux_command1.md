@@ -45,45 +45,30 @@ layout: default
 * 지정된 파일의 종류(타입)을 확인하는 명령어
 
 #### 
-* -C : 매직 파일의 포맷을 검사하는 옵션
-* -f 목록파일 : 많은 파일들을 한번에 확인하기 위하여 파일리스트인 목록파일을 만들어서 그 안에 입력된 모든 파일을 한꺼번에 확인하는 옵션
-* -m 매직파일 : 지정된 매직파일로 대상파일을 확인
+*
+* 
+* 
 
 ```
-[vagrant@host1 bitcamp-study]$ file docs <- 파일 종류 확인
-docs: directory
-[vagrant@host1 bitcamp-study]$ cd ..
-[vagrant@host1 git]$ cd bitcamp-ncp
-[vagrant@host1 bitcamp-ncp]$ dir
-b.txt  c.txt  d.txt  hello2.txt  README.md  x.txt
-[vagrant@host1 bitcamp-ncp]$ file c.txt <- 파일 종류 확인
-c.txt: ASCII text
-[vagrant@host1 bitcamp-ncp]$ file -f c.txt <- file이나 directory가 아니라서 사용 불가
-1111: cannot open (No such file or directory)
-[vagrant@host1 bitcamp-ncp]$ file -m c.txt <- 매직파일인지 확인
-c.txt, 1: Warning: type `' invalid
-file: could not find any magic files! <- 매직파일 X
-[vagrant@host1 bitcamp-ncp]$ cd ..
-[vagrant@host1 git]$ file bitcamp-study <- 파일 종류 확인
-bitcamp-study: directory
+
 ```
 
 -----------------------------------
 
-### less
-* 파일 내용을 확인하는 명령어 
+### 
+*  
 
-* 페이지 단위로 나누어 보여줌 → 대용량의 파일을 열어 볼 때 빠르게 사용 가능
+* 
 
-* 지나간 내용을 다시 볼 수 O
+* 
 
-#### 파일 내용을 확인하는 명령어
-- more
-    - 페이지 단위로 나누어 보여줌
-    - 위에서 아래 방향으로만 출력
-    - 지나간 내용을 다시 볼 수 X
-- cat
-    - 파일을 모두 출력하는데 만약 파일의 내용이 많은 경우 한 번에 보기 어려움
+#### 
+- 
+    - 
+    - 
+    - 
+- 
+    - 
 
 #### 자주 사용하는 옵션
 - -? : less에서 사용할 수 있는 명령들에 대한 도움말 출력
