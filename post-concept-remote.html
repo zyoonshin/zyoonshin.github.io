@@ -84,305 +84,89 @@
 	    <article class="blog-post px-3 py-5 p-md-5">
 		    <div class="container single-col-max-width">
 			    <header class="blog-post-header">
-				    <h2 class="title mb-2">파일/디렉토리 조작 명령어</h2>
+				    <h2 class="title mb-2">Remote</h2>
 				    <div class="meta mb-3"><span class="date">Published 2 days ago</span><span class="time">5 min read</span>
 						<span class="comment"><a  class="text-link" href="#">4 comments</a></span></div>
 			    </header>
 			    
 			    <div class="blog-post-body">
-				    <figure class="blog-banner">
+				    <!-- <figure class="blog-banner">
 				        <a href="https://made4dev.com"></a><img class="img-linux" src="assets/images/blog/linux.png" alt="image"></a>
 				        <figcaption class="mt-2 text-center image-caption">Image Credit: <a class="theme-link" href="https://www.deok.me/entry/Linux-%EB%A6%AC%EB%88%85%EC%8A%A4-Ubuntu-CentOS-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%A0%95%EB%B3%B4-%EB%B0%8F-%EB%B2%84%EC%A0%84-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0-%EC%BB%A4%EB%84%90-OS-%EB%B2%84%EC%A0%84-%EC%A0%95%EB%B3%B4" target="_blank">[Linux] 리눅스 Ubuntu & CentOS 시스템 정보 및 버전 확인하기 ( 커널, OS 버전, 정보 )</a></figcaption>
-				    </figure>
-				    <p>Linux는 안정적이고 안전한 유닉스 기반의 무료 오픈 소스 운영 체제입니다.
-						Linux가 Windows 및 Mac과 구별되는 특성 중 하나는 오픈 소스라는 점입니다.
-						이는 커널을 통해 사용자가 자신의 운영 체제를 개발할 수 있음을 의미합니다.
-						Linux는 무료 오픈 소스이기 때문에 누구나 무료로 다운로드하여 
-						코드를 변경하여 수정 된 사본을 재배포 할 수 있습니다.
-						이것은 기술적인 사용자에게 특히 유용합니다.
-						전 세계 개발자들이 리눅스 코드를 공유하고 공동으로 개발할 수 있습니다.
-						Linux는 보편적으로 개인용 컴퓨터, 데스크탑, 게임 개발, 임베디드 시스템, 
-						스마트 폰, 태블릿 등에 사용됩니다.
+				    </figure>-->
+					<h3>사용자 인증 정보</h3>
+				    <p>로컬 저장소에서 원격 저장소로 데이터를 넘길때 커밋한 사람이 누구며, 어떠한 사람인지 남길 필요가 있습니다.<br>
+						이 정보들은 commit 할때마다 이 정보를 사용합니다.
 					</p>
 
-					<br>
+					<br> 
 				    
-				    <h3 class="concept_"></h3>
+				    <h3>사용자 인증 정보</h3>
 						<ul>
-							<li></li>
-							<li></li>
-						</ul>
+							<li>사용자 인증 정보 설정</li>
+								<pre>
+									<code>[vagrant@host1 ~]$ git config --global user.name "user.name"
+[vagrant@host1 ~]$ git config --global user.email "user.email"</code>
+								</pre>
 
-						<ul>
-							<li></li>
-								<ul class="_opt">
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-								</ul>
+							<li>사용자 인증 정보 확인</li>
+								<pre>
+									<code>[vagrant@host1 ~]$ git config -l
+user.name=user.name
+user.email=user.email
+[vagrant@host1 ~]$ git config --list
+user.name=user.name
+user.email=user.email
+[vagrant@host1 ~]$ git config --system --list
+fatal: unable to read config file '/etc/gitconfig': No such file or directory
+[vagrant@host1 ~]$ git config --global --list
+user.name=user.name
+user.email=user.email</code>
+								</pre>
 						</ul>
-				    <pre>
-						<code>
-</code>
-				    </pre>
+				    
+						<h3>로컬 저장소 추가</h3>
+						<ul>
+							<li>원격 저장소 추가</li>
+								<pre>
+									<code>[vagrant@host1 ~]$ git remote add origin https://github.com/zyoonshin/bitcamp-ncp <- 원격 저장소 추가
+[vagrant@host1 bitcamp-ncp]$ git remote -v <- 원격 저장소 확인
+origin  https://github.com/zyoonshin/bitcamp-ncp (fetch)
+origin  https://github.com/zyoonshin/bitcamp-ncp (push)</code>
+								</pre>
+						</ul>
 					
-				    
-					<h3 class="concept_"></h3>
+						<h3>Branch</h3>
 						<ul>
-							<li></li>
-							<li></li>
+							<li>Branch 생성</li>
+								<pre>
+									<code>[vagrant@host1 bitcamp-ncp]$ git branch [branch name]</code>
+								</pre>
 						</ul>
 
 						<ul>
-							<li></li>
-								<ul class="_opt">
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-								</ul>
-						</ul>
-				    <pre>
-						<code>
-</code>
-				    </pre>
-
-					<h3 class="concept_"></h3>
-						<ul>
-							<li></li>
-							<li></li>
+							<li>Branch 확인</li>
+								<pre>
+									<code>[vagrant@host1 bitcamp-ncp]$ git branch
+* b1 <-현재 작업중인 branch
+  main</code>
+								</pre>
 						</ul>
 
 						<ul>
-							<li></li>
-								<ul class="_opt">
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-								</ul>
-						</ul>
-				    <pre>
-						<code>
-</code>
-				    </pre>
-
-					<h3 class="concept_"></h3>
-						<ul>
-							<li></li>
-							<li></li>
+							<li>작업중인 branch 변경</li>
+								<pre>
+									<code>git checkout [branch name]
+git branch <- 변경된 branch 확인 가능</code>
+								</pre>
 						</ul>
 
 						<ul>
-							<li></li>
-								<ul class="_opt">
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-								</ul>
+							<li>생성된 branch를 main에 merge</li>
+								<pre>
+									<code>git merge [branch name]</code>
+								</pre>
 						</ul>
-				    <pre>
-						<code>
-</code>
-				    </pre>
-
-					<h3 class="concept_"></h3>
-						<ul>
-							<li></li>
-							<li></li>
-						</ul>
-
-						<ul>
-							<li></li>
-								<ul class="_opt">
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-								</ul>
-						</ul>
-				    <pre>
-						<code>
-</code>
-				    </pre>
-
-					<h3 class="concept_"></h3>
-						<ul>
-							<li></li>
-							<li></li>
-						</ul>
-
-						<ul>
-							<li></li>
-								<ul class="_opt">
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-								</ul>
-						</ul>
-				    <pre>
-						<code>
-</code>
-				    </pre>
-
-					<h3 class="concept_"></h3>
-						<ul>
-							<li></li>
-							<li></li>
-						</ul>
-
-						<ul>
-							<li></li>
-								<ul class="_opt">
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-								</ul>
-						</ul>
-				    <pre>
-						<code>
-</code>
-				    </pre>
-
-					<h3 class="concept_"></h3>
-						<ul>
-							<li></li>
-							<li></li>
-						</ul>
-
-						<ul>
-							<li></li>
-								<ul class="_opt">
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-								</ul>
-						</ul>
-				    <pre>
-						<code>
-</code>
-				    </pre>
-
-					<h3 class="concept_"></h3>
-						<ul>
-							<li></li>
-							<li></li>
-						</ul>
-
-						<ul>
-							<li></li>
-								<ul class="_opt">
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-								</ul>
-						</ul>
-				    <pre>
-						<code>
-</code>
-				    </pre>
-
-					<h3 class="concept_"></h3>
-						<ul>
-							<li></li>
-							<li></li>
-						</ul>
-
-						<ul>
-							<li></li>
-								<ul class="_opt">
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-								</ul>
-						</ul>
-				    <pre>
-						<code>
-</code>
-				    </pre>
-
-					<h3 class="concept_"></h3>
-						<ul>
-							<li></li>
-							<li></li>
-						</ul>
-
-						<ul>
-							<li></li>
-								<ul class="_opt">
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-								</ul>
-						</ul>
-				    <pre>
-						<code>
-</code>
-				    </pre>
-
-					<h3 class="concept_"></h3>
-						<ul>
-							<li></li>
-							<li></li>
-						</ul>
-
-						<ul>
-							<li></li>
-								<ul class="_opt">
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-								</ul>
-						</ul>
-				    <pre>
-						<code>
-</code>
-				    </pre>
 
 				
 				<nav class="blog-nav nav nav-justified my-5">
