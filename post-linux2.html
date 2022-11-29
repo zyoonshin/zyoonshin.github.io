@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
-    <title>Jiyoon's Blog - Linux Basic Commands</title>
+    <title>Jiyoon's Blog - Linux operating commands</title>
     
     <!-- Meta -->
     <meta charset="utf-8">
@@ -81,7 +81,7 @@
 	    <article class="blog-post px-3 py-5 p-md-5">
 		    <div class="container single-col-max-width">
 			    <header class="blog-post-header">
-				    <h2 class="title mb-2">파일 탐색 기본 명령어</h2>
+				    <h2 class="title mb-2">파일/디렉토리 조작 명령어</h2>
 				    <div class="meta mb-3"><span class="date">Published 2 days ago</span><span class="time">5 min read</span>
 						<span class="comment"><a  class="text-link" href="#">4 comments</a></span></div>
 			    </header>
@@ -104,12 +104,28 @@
 
 					<br>
 				    
-				    <h3 class="linux_pws">pwd</h3>
-						<li>Print Working Directory 의 약어</li>
-						<li>현재 어떤 디렉토리경로에 있는가를 절대경로로 표시하는 명령어</li>
+				    <h3 class="linux_pws">cp</h3>
+						<ul>
+							<li>copy의 줄임말</li>
+							<li>파일이나 디렉토리를 복사할 때 사용하는 명령어</li>
+
+							<li>자주 사용하는 옵션</li>
+								<ul class="cp_opt">
+									<li>-i : 복사 될 파일이 이름이 이미 존재할 경우, 사용자에게 덮어 쓰기 여부를 물음</li>
+									<li>-b : 복사 될 파일이 이름이 이미 존재할 경우, 백업 파일을 생성</li>
+									<li>-f : 복사 될 파일이 이름이 이미 존재 할 경우, 강제로 덮어쓰기</li>
+									<li>-r : 하위 디렉토리까지 모두 복사</li>
+									<li>-a : 원본 파일의 속성, 링크 정보까지 모두 복사</li>
+									<li>-p : 원본 파일의 소유자, 그룹, 권한 등의 정보까지 모두 복사</li>
+									<li>-v : 복사 진행 상태를 출력</li>
+								</ul>
+						</ul>
 				    <pre>
-						<code>[vagrant@host1 bitcamp-study]$ pwd
-/home/vagrant/git/bitcamp-study
+						<code>[vagrant@host1 bitcamp-ncp]$ ls
+b.txt  c.txt  d.txt  hello2.txt  magic.mgc  README.md  x.txt
+[vagrant@host1 bitcamp-ncp]$ cp b.txt b_cp.txt <- b.txt 파일을 복사하여 b_cp.txt 파일 생성
+[vagrant@host1 bitcamp-ncp]$ ls
+b_cp.txt  b.txt  c.txt  d.txt  hello2.txt  magic.mgc  README.md  x.txt
 </code>
 				    </pre>
 					
