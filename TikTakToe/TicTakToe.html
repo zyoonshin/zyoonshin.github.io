@@ -1,24 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" context=""width=device-width, initial-scale="1.0">
-        <title>Tik Tak Toe</title>
-        <style>
-            /* td : table data의 약자로, 셀 생성 */
-            td {
-                border: 3px solid;
-                width: 150px;
-                height: 150px;
-                text-align: center;
-                font-size: 100px;
-            }
-        </style>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="TicTakToe.css">
+</head>
+<body>
+    <section>
+        <h1 class="title">Tic Tac Toe</h1>
         <div class="container">
-            <div class="TicTacToe"></div>
+            <div cell-index="0" class="cell"></div>
+            <div cell-index="1" class="cell"></div>
+            <div cell-index="2" class="cell"></div>
+            <div cell-index="3" class="cell"></div>
+            <div cell-index="4" class="cell"></div>
+            <div cell-index="5" class="cell"></div>
+            <div cell-index="6" class="cell"></div>
+            <div cell-index="7" class="cell"></div>
+            <div cell-index="8" class="cell"></div>
         </div>
-        <script src="TicTakToe.js"></script>
-    </body>
+        <h2 class="status"></h2>
+    </section>
+
+    <script src="TicTakToe.js"></script>
+</body>
 </html>

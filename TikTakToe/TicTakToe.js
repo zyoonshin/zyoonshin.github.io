@@ -1,68 +1,79 @@
-var TicTacToeDiv=document.querySelector(".TicTakToe");
+const statusDisplay = document.querySelector('.status');
 
-var nodeList=[];
-var size=3; // 3X3이므로
-var turn =-1;
-var playername="";
-var color="";
+let gameActive = true;
+let currentPlayer = "X";
+let gameState = ["", "", "", "", "", "", "", "", ""];
 
-// 칸을 누를 때 칸 변경
-// 조건에 충족할 때 승리자를 체크할 수 있는 함수로 값 넘김
-var nodeEvent=function(t) {
-    target=t.target;
-    if(String(target.textContext)==="") {// target은 node다
-        target.textContext="O";
-        color=red;
-        playername=1st
-    }
-    else {
-        target.textContext="X";
-        color=blue;
-        playername=2nd;
-    }
-    turn++;
-    if(turn > (size*2)-2) {
-        win_check(target.textContext);
-    }
+const winningMessage = () => `${currentPlayer}'s victory`;
+const drawMessage = () => `A draw!`;
+const currentPlayerTurn = () => `${currentPlayer}'s turn`;
+
+statusDisplay.innerHTML = currentPlayerTurn();
+
+const winningConditions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+];
+
+function handleCellPlayed(clickedCell, clickedCellIndex) {
+    gameState[clickedCellIndex] = currentPlayer;
+    clickedCell.innerHTML = currentPlayer;
 }
 
-// 가로 세로를 체크할 수 있는 변수 생성
-// 승리 조건일 ㅕㅇ우 화면 마무리
-function win_check(check) {
-    var left=0;
-    var right=0;
-    for(var i=0;i<size;i++) {
-        var x=0; var y=0;   // reset
-        for(var j=0;j<size;j++) {
-            text=nodeList[i][j].textContext;    // 가로 체크
-            text2=nodeList[j][i].textContext;    // 세로 체크
-            if(check===text) {
-                x++;    // 가로
-                if(i===j) {
-                    left++; // 왼쪽 사이드
-                }
-            }
-            if(check===text2) {
-                y++;    // 세로
-                if(j===size-i-1) {
-                    right++;    // 오른쪽 사이드
-                }
-            }
-            if(x===size || y===size || left===size || right===size) {
-                turn=0; win_show(); return();
-            }
-            if(turn>=size*size) {   // 무승부인 경우
-                win_show();
-            }
+function handlePlayerChange() {
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    statusDisplay.innerHTML = currentPlayerTurn();
+}
+
+function handleResultValidation() {
+    let roundWon = false;
+    for (let i = 0; i <= 7; i++) {
+        const winCondition = winningConditions[i];
+        let a = gameState[winCondition[0]];
+        let b = gameState[winCondition[1]];
+        let c = gameState[winCondition[2]];
+        if (a === '' || b === '' || c === '') {
+            continue;
+        }
+        if (a === b && b === c) {
+            roundWon = true;
+            break
         }
     }
+
+    if (roundWon) {
+        statusDisplay.innerHTML = winningMessage();
+        gameActive = false;
+        return;
+    }
+
+    let roundDraw = !gameState.includes("");
+    if (roundDraw) {
+        statusDisplay.innerHTML = drawMessage();
+        gameActive = false;
+        return;
+    }
+
+    handlePlayerChange();
 }
 
-// 승부가 남
-// 무승부인 경우 무스부 출력
-function win_show() {
-    setTime.function() {
-        TicTacToeDiv.innerHTML="";
-        //
+function handleCellClick(clickedCellEvent) {
+    const clickedCell = clickedCellEvent.target;
+    const clickedCellIndex = parseInt(clickedCell.getAttribute('cell-index'));
+
+    if (gameState[clickedCellIndex] !== "" || !gameActive) {
+        return;
     }
+
+    handleCellPlayed(clickedCell, clickedCellIndex);
+    handleResultValidation();
 }
+
+
+document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
