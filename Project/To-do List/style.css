@@ -122,6 +122,7 @@ body {
     margin: 0 auto;
 }
 
+/* 경고 이벤트 제거
 @keyframes error {
     0% {
         opacity: 0
@@ -139,7 +140,7 @@ body {
     100% {
         transform: scale(1);
     }
-}
+} */
 
 @media screen and (max-width: 765px) {
     form {
