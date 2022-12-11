@@ -7,8 +7,10 @@ window.onload = () => {
 let tasks = [];
 const getTasks = localStorage.getItem('tasks');
 
+// stringify를 이용하여 string으로 만든 값을 array로 만들기 위해 parse 함수를 이용한다.
 if (getTasks) tasks = JSON.parse(getTasks);
 
+// .value로 입력된 값 받아옴
 const input = document.getElementById('task'),
     createBtn = document.getElementById('create-task'),
     
@@ -23,9 +25,12 @@ class Task {
     // display tasks
     static display() {
         const tasks_container = document.getElementById('tasks');
+
+        // task의 값을 let으로 해서 업데이트 가능하게 한다.
         let _tasks = '';
 
         // local storage로부터 데이터를 가져옴
+        // forEach함수를 이용해서 array에 있는 각각의 item에 대해 function을 실행할 수 있도록 한다.
         tasks.forEach((task, index) => {
             _tasks += `                                         
                 <div class="task-item ${task.state === "show" ? 'mt-2 d-flex justify-content-between align-items-center' : 'd-none'}">
@@ -45,6 +50,11 @@ class Task {
         (tasks.length === 0 || _tasks === '') ? clear__all.classList.add('d-none') : clear__all.classList.remove('d-none');
         tasks_container.innerHTML = _tasks;
 
+
+        // local storage에 저장하기 위해
+        // array를 만들고 리스트가 추가될 때마다 그 리스트를 array에 push한다.
+        // 하지만 local storage에는 array를 저장할 수 없고, only text만 저장할 수 있다.
+        // 따라서 local storage 값을 배열로 바꿔야 한다.
         // stringify 함수를 이용하여 local storage로 JSON 형식의 문자열로  데이터 넘겨줌
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
@@ -59,6 +69,7 @@ class Task {
 
     // completed
     static todoCompleted(task) {
+        // forEach함수를 이용해서 array에 있는 각각의 item에 대해 function을 실행할 수 있도록 한다.
         tasks.forEach(item => {
             if (`${item.id}` === task) {
                 if (item.completed === 'false')
@@ -77,6 +88,7 @@ class Task {
         const taskInput = document.getElementById('task-input');
         const edit = document.querySelectorAll('.task-name');
 
+        // forEach함수를 이용해서 array에 있는 각각의 item에 대해 function을 실행할 수 있도록 한다.
         tasks.forEach((item, index) => {
             if (`${item.id}` === task) {
                 taskItems[index].classList.add('task-editing');
@@ -90,6 +102,8 @@ class Task {
                 const taskInputs = document.querySelectorAll('#task-input');
                 const saveEditTodo = document.querySelector('.save-edited-todo');
                 if (taskInputs) {
+
+                    // forEach함수를 이용해서 array에 있는 각각의 item에 대해 function을 실행할 수 있도록 한다.
                     taskInputs.forEach(input => {
                         input.addEventListener('keydown', e => {
                             if (e.key === 'Enter') {
@@ -98,6 +112,7 @@ class Task {
                                 // if (input.value === '') showError('.error', 'Edit Field Cannot be Empty!');
 
                                 // eventListenr를 이용하여 click시 발생할 이벤트를 설정한다.
+                                // .value로 입력된 값 받아옴
                                 saveEditTodo.addEventListener('click', e => {
                                     let input_value = input.value;
                                     if (input_value) this.update(task, input_value);
@@ -124,7 +139,7 @@ class Task {
     // local storage에서의 데이터도 업데이트 시켜야함
     // filter() 메소드를 이용하면 forEach() 메소드와 같이 배열의 모든 요소마다 특정 메소드 호출해줌
     // 만약 특정 메소드가 false이 아닌 true를 반환한 값들만 모아둔 배열을 만들어 반환
-    // 타겟 노드는 바뀌지 않고 반환 ㄱ밧으로만 변환된 배열을 얻을 수 있으므로 item 변수 다시 받음
+    // 타겟 노드는 바뀌지 않고 반환 값으로만 변환된 배열을 얻을 수 있으므로 item 변수 다시 받음
     static delete(task) {
         // filter() 메소드는 true, false이므로 => 을 이용하여 간단한 boolean형 조건문으로 대체함
         tasks = tasks.filter(item => `${item.id}` !== task);
@@ -154,6 +169,8 @@ class Task {
 
 // Create Btn
 // EventListner를 이용하여 리스트를 추가하는 이벤트를 설정한다.
+// .value로 입력된 값 받아옴
+// 공백이 아니라면 creat함수를 이용해서 input_value를 하나 생성한다.
 createBtn.addEventListener('click', (e) => {
     const input_value = input.value;
     if (input_value !== '') {
@@ -188,6 +205,7 @@ createBtn.addEventListener('click', (e) => {
 // });
 
 // Prevent from Submit-ing the Form
+// adEventListener로 submit 감지
 let form = document.querySelector('.form');
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -197,6 +215,7 @@ form.addEventListener('submit', e => {
 // -> 키 누르면 경고 나타났던 이유
 // 엔터 쳐도 리스트 추가
 
+// input 값이 공백이 아니라면 버튼을 하나 생성한다.
 input.addEventListener('keydown', e => {
      if (e.key === 'Enter') createBtn.click();
 
