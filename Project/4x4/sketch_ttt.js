@@ -2,7 +2,8 @@
 let source;
 
 // Tiles configuration
-let tiles = []; // array
+//var tile = new Array(10);
+let tiles = [];
 let cols = 4;
 let rows = 4;
 let w, h;
@@ -10,19 +11,10 @@ let w, h;
 // Order of tiles
 let board = [];
 
-// Loading the image
-// image를 가져옴 -> array로 바꾸기
-function preload() {
-  source = loadImage("ttt.png");
-}
 
-// 기본 셋업
-// width = 400, height = 400
 function setup() {
   createCanvas(400, 400);
   // pixel dimensions of each tiles
-  // w: width / cols 해서 칸별 width로 설정
-  // h: height / rows 해서 칸별 height로 설정 
   w = width / cols;
   h = height / rows;
   
@@ -31,18 +23,17 @@ function setup() {
     for (let j = 0; j < rows; j++) {
       let x = i * w;
       let y = j * h;
-      let img = createImage(w, h);  // img 생성
-      img.copy(source, x, y, w, h, 0, 0, w, h); 
-      // copy(srcImg, sx, sy, sw, sh, dx,dy, dw, dh);
+      // let img = createImage(w, h);
+      // img.copy(source, x, y, w, h, 0, 0, w, h);
       let index = i + j * cols;
       board.push(index);
-      let tile = new Tile(index, img);
+      let tile = new Tile(index, 10);
       tiles.push(tile);
     }
   }
   
   // Remove the last tile
-  // pop(): 배열의마지막 요소를 제거
+  // pop(): 배열의마지막 요소를 제거한 후, 제거한 요소 반환
   tiles.pop();
   board.pop();
   // -1 means empty spot
@@ -53,8 +44,7 @@ function setup() {
   simpleShuffle(board);
 }
 
-// Swap two elements of an array\
-// 자리 이동 시
+// Swap two elements of an array
 function swap(i, j, arr) {
   let temp = arr[i];
   arr[i] = arr[j];
@@ -66,17 +56,14 @@ function swap(i, j, arr) {
 // This should be improved to select from only valid moves
 function randomMove(arr) {
   // floor(): 소수점 자리 수 무조건 내림
-  // 자바스크립트이기에 소숫점 생기는 것 방지
   let r1 = floor(random(cols));
   let r2 = floor(random(rows));
-  // move(): 
   move(r1, r2, arr);
 }
 
 // Shuffle the board
 function simpleShuffle(arr) {
   for (let i = 0; i < 1000; i++) {
-    // random하게 arr을 1000번 움직이기
     randomMove(arr);
   }
 }
@@ -100,10 +87,10 @@ function draw() {
       let x = i * w;
       let y = j * h;
       let tileIndex = board[index];
-      if (tileIndex > -1) {
-        let img = tiles[tileIndex].img;
-        image(img, x, y, w, h);
-      }
+      // if (tileIndex > -1) {
+      //   let img = tiles[tileIndex].img;
+      //   image(img, x, y, w, h);
+      // }
     }
   }
   
@@ -142,7 +129,6 @@ function move(i, j, arr) {
   
   // Double check valid move
   if (isNeighbor(i, j, blankCol, blankRow)) {
-    // 이웃이 비어있다면, swap 함수를 사용해서 위치 변경
     swap(blank, i + j * cols, arr);
   }
 }
@@ -154,7 +140,6 @@ function isNeighbor(i, j, x, y) {
   }
 
   if (abs(i - x) == 1 || abs(j - y) == 1) {
-    // abs: 절댓값 반환
     return true;
   }
   return false;
