@@ -3,7 +3,7 @@
   /* border: 1px red solid; */
   width: 500px;
   height: 620px;
-  background-image: url(/darktemi7/weather/frontend/image/map.jpg);
+  background-image: url(frontend/image/map.jpg);
   background-size: cover;
   margin: 0px;
 }
@@ -123,31 +123,31 @@
 }
 
 .sun {
-  background-image: url(/darktemi7/weather/frontend/image/background.jpg);
+  background-image: url(frontend/image/background.jpg);
   background-size: 1100%;
   background-position: -25px -78px;
 }
 
 .cloud {
-  background-image: url(/darktemi7/weather/frontend/image/background.jpg);
+  background-image: url(frontend/image/background.jpg);
   background-size: 1100%;
   background-position: -160px -78px;
 }
 
 .blur {
-  background-image: url(/darktemi7/weather/frontend/image/background.jpg);
+  background-image: url(frontend/image/background.jpg);
   background-size: 1100%;
   background-position: 200px -78px;
 }
 
 .rain {
-  background-image: url(/darktemi7/weather/frontend/image/background.jpg);
+  background-image: url(frontend/image/background.jpg);
   background-size: 1100%;
   background-position: 66px -78px;
 }
 
 .snow {
-  background-image: url(/darktemi7/weather/frontend/image/background.jpg);
+  background-image: url(frontend/image/background.jpg);
   background-size: 1100%;
   background-position: -228px -145px;
 }
