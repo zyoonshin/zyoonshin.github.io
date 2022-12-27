@@ -63,7 +63,10 @@
 					    <a class="nav-link active" href="index-project.html"><i class="fas fa-bookmark fa-fw me-2"></i>Project</a>
 					</li>
 					<li class="nav-item">
-							<a class="nav-link active" href="index-Web.html"><i class="fas fa-bookmark fa-fw me-2"></i>Web</a>		
+							<a class="nav-link active" href="index-Frontend.html"><i class="fas fa-bookmark fa-fw me-2"></i>Frontend</a>	
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="index-Backend.html"><i class="fas fa-bookmark fa-fw me-2"></i>Backend</a>
 					</li>
 					<li class="nav-item">
 					    <a class="nav-link" href="about.html"><i class="fas fa-user fa-fw me-2"></i>About Me</a>
@@ -200,45 +203,392 @@ document.querySelector("#btn1").onclick = () => {
 };</code>
 						</pre>
 
-						<br>
-					
-						<h3>3. 태그 찾기</h3>
+						<h3>3. append()</h3>
 	
 							<pre>
-								<code></code>
+								<code>jquery-03.js
+function jQuery(selector) {
+  if (selector.startsWith("<"))
+    let e = document.createElement(selector.substring(1, selector.length -1));
+    // e = 엘리먼트
+    e.append = function(child) {
+       e.appendChild(child);
+    };
+  return e;
+
+  } else {
+    let el = document.querySelectorAll(selector);
+    for (let e of el) {
+      e.append = function(child) {
+        e.appendChild(child);
+      };
+    }
+    return el;
+  };
+}
+
+var $ = jQuery;</code>
 							</pre>
 	
 							<pre>
-								<code></code>
-							</pre>
+<code>"use strict"
+
+var tbody = $("tbody")[0];
+
+document.querySelector("#btn1").onclick = () => {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4) {
+      if (xhr.status == 200) {
+        console.log(xhr.responseText);
+        -> [
+            {"no":1,"title":"제목1","writer":"홍길동","viewCnt":19},
+            {"no":2,"title":"제목2","writer":"임꺽정","viewCnt":312},
+            {"no":3,"title":"제목3","writer":"유관순","viewCnt":31},
+            {"no":4,"title":"제목4","writer":"안중근","viewCnt":100},
+            {"no":5,"title":"제목5","writer":"윤봉길","viewCnt":200}
+            ]
+
+        var arr = JSON.parse(xhr.responseText);
+        console.log(arr); -> (5) [{…}, {…}, {…}, {…}, {…}]
+
+
+        for (var b of arr) {
+          var tr = $("<tr>");
+          tr.innerHTML = "<td>" + b.no + "</td>" + 
+            "<td>" + b.title + "</td>" + 
+            "<td>" + b.writer + "</td>" +
+            "<td>" + b.viewCnt + "</td>";
+          tbody.append(tr); // jQuery를 통해서 만든 tbody만 가능
+          }
+        }
+      }
+    };
+    xhr.open("GET", "http://localhost:3000/exam04-3", true);
+    xhr.send();
+};
+
+</code></pre>
 
 							<br>
 					
-							<h3>1. 태그 찾기</h3>
+							<h3>4. 리팩토링</h3>
 		
 								<pre>
-									<code></code>
-								</pre>
+<code>jquery-04.js
+function jQuery(selector) {
+  let el = [];  // 생성한 태그나 찾은 태그를 담는 배열
+  if (selector.startsWith("<")) {
+    el[0] = document.createElement(selector.substring(1, selector.length -1));
+  } else {
+    let nodeList = document.querySelectorAll(selector);
+    for (let e of nodeList) {
+      el.push(e);
+    }
+  }
+
+  // original jQuery가 하는 일
+  el.append = function(childBox) { 
+    // 자식 태그를 복제해서 각 부모 태그에 붙인다.
+    for (let parent of el) {
+      // 자식들이 들어있는 상자에서 자식을 한 개씩 꺼내 복제하여 각 부모의 자식으로 붙인다.
+      for (let child of childBox) {
+        console.log(child);
+        -> <tr>...</tr>
+           <tr>...</tr>
+           <tr>...</tr>
+           <tr>...</tr>
+           <tr>...</tr>
+
+        parent.appendChild(child.cloneNode(true));
+      }
+    }
+    // child 박스에 들은 자식들은 모두 자식 태그는 제거한다.
+    for (let child of childBox) {
+      if (child.parentElement != null || child.parentElement != undefined) {
+        child.parentElement.removeChild(child);
+      }
+    }
+  };
+  // 태그 말고 배열에 집어넣기 , jQuery 리턴 값 필기참고
+  return el;
+  }
+
+var $ = jQuery;</code></pre>
 		
 								<pre>
-									<code></code>
-								</pre>
+<code>"use strict"
+
+var tbody = $("tbody");
+
+document.querySelector("#btn1").onclick = () => {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4) {
+      if (xhr.status == 200) {
+        var arr = JSON.parse(xhr.responseText);                
+        for (var b of arr) {
+          var tr = $("<tr>");
+
+          tr[0].innerHTML = "<td>" + b.no + "</td>" + 
+            "<td>" + b.title + "</td>" + 
+            "<td>" + b.writer + "</td>" +
+            "<td>" + b.viewCnt + "</td>";
+
+          tbody.append(tr);
+        }
+      }
+    }
+  };
+  xhr.open("GET", "http://localhost:3000/exam04-3", true);
+  xhr.send();
+};</code></pre>
 
 								<br>
 					
-								<h3>1. 태그 찾기</h3>
+								<h3>5. html()</h3>
 			
 									<pre>
-										<code></code>
-									</pre>
+<code>jquery-05.js
+function jQuery(selector) {
+let el = [];
+  if (selector.startsWith("<")) {
+    el[0] = document.createElement(selector.substring(1, selector.length - 1));
+  } else {
+    let nodeList = document.querySelectorAll(selector);
+    for (let e of nodeList) {
+      el.push(e);
+    }
+  }
+
+  el.append = function(childBox) {
+    for (let parent of el) {
+      for (let child of childBox) {
+        parent.appendChild(child.cloneNode(true));
+      }
+    }
+    for (let child of childBox) {
+      if (child.parentElement != null || child.parentElement != undefined) {
+        child.parentElement.removeChild(child);
+      }
+    }
+  };
+
+  el.html = function(content) {
+    for (let e of el) {
+      e.innerHTML = content;
+    }
+  }
+}
+
+var $ = jQuery;</code></pre>
 			
 									<pre>
-										<code></code>
-									</pre>
+<code>"use strict"
+
+var tbody = $("tbody");
+
+document.querySelector("#btn1").onclick = () => {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4) {
+      if (xhr.status == 200) {
+        var arr = JSON.parse(xhr.responseText);
+        for (var b of arr) {
+          var tr = $("<tr>");
+
+          tr.html("<td>" + b.no + "</td>" + 
+            "<td>" + b.title + "</td>" + 
+            "<td>" + b.writer + "</td>" +
+            "<td>" + b.viewCnt + "</td>");
+
+          tbody.append(tr);
+        }
+      } else {
+        alert('데이터 요청 오류');
+      }
+    }
+  };
+  xhr.open("GET", "http://localhost:3000/exam04-3", true);
+  xhr.send();
+};</code></pre>
 
 									<br>
 					
-									<h3>1. 태그 찾기</h3>
+									<h3>6. on()</h3>
+				
+										<pre>
+<code>jquery-06.js
+function jQuery(selector) {
+  let el = [];
+
+  if (selector.startsWith("<")) {
+    el[0] = document.createElement(selector.substring(1, selector.length - 1));
+  } else {
+    let nodeList = document.querySelectorAll(selector);
+    for (let e of nodeList) {
+      el.push(e);
+    }
+  }
+
+  el.append = function(childBox) {
+    for (let parent of el) {
+      for (let child of childBox) {
+        parent.appendChild(child.cloneNode(true));
+      }
+    }
+
+    for (let child of childBox) {
+      if (child.parentElement != null || child.parentElement != undefined) {
+        child.parentElement.removeChild(child);
+      }
+    }
+  };
+
+  el.html = function(content) {
+    for (let e of el) {
+      e.innerHTML = content;
+    }
+  }
+
+  el.on = function(eventName, listener) {
+    for (let e of el) {
+      e.addEventListener(eventName, listener);
+    }
+  };
+
+  return el;
+  }
+
+var $ = jQuery;</code></pre>
+				
+										<pre>
+<code>"use strict"
+
+var tbody = $("tbody");
+
+$("#btn1").on('click', () => {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4) {
+      if (xhr.status == 200) {
+        var arr = JSON.parse(xhr.responseText);
+        for (var b of arr) {
+          var tr = $("<tr>");
+
+          tr.html("<td>" + b.no + "</td>" + 
+            "<td>" + b.title + "</td>" + 
+            "<td>" + b.writer + "</td>" +
+            "<td>" + b.viewCnt + "</td>");
+
+          tbody.append(tr);
+        }
+      } else {
+        alert('데이터 요청 오류');
+      }
+    }
+  };
+  xhr.open("GET", "http://localhost:3000/exam04-3", true);
+  xhr.send();
+});</code></pre>
+
+					
+										<h3>7. appendTo()</h3>
+					
+											<pre>
+<code>jquery-07.js
+function jQuery(selector) {
+  let el = [];
+
+  if (selector.startsWith("<")) {
+    el[0] = document.createElement(selector.substring(1, selector.length - 1));
+
+  } else {
+    let nodeList = document.querySelectorAll(selector);
+    for (let e of nodeList) {
+      el.push(e);
+    }
+  }
+
+  el.append = function(childBox) {
+    for (let parent of el) {
+      for (let child of childBox) {
+        parent.appendChild(child.cloneNode(true));
+      }
+    }
+
+    for (let child of childBox) {
+      if (child.parentElement != null || child.parentElement != undefined) {
+        child.parentElement.removeChild(child);
+      }
+    }
+  };
+
+  el.appendTo = function(parents) { // el = childBox
+    // parents에서 뽑아내
+    for (let parent of parents) {
+      for (let child of el) {
+        parent.appendChild(child.cloneNode(true));
+      }
+    }
+    for (let child of el) {
+      if (child.parentElement != null || child.parentElement != undefined) {
+        child.parentElement.removeChild(child);
+      }
+    }
+  };
+
+  el.html = function(content) {
+    for (let e of el) {
+      e.innerHTML = content;
+    }
+  }
+
+  el.on = function(eventName, listener) {
+    for (let e of el) {
+      e.addEventListener(eventName, listener);
+    }
+  };
+  return el;
+}
+
+var $ = jQuery;</code></pre>
+					
+											<pre>
+<code>"use strict"
+
+var tbody = $("tbody");
+
+$("#btn1").on('click', () => {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4) {
+      if (xhr.status == 200) {
+        var arr = JSON.parse(xhr.responseText);
+        for (var b of arr) {
+          var tr = $("<tr>");
+
+          tr.html("<td>" + b.no + "</td>" + 
+            "<td>" + b.title + "</td>" + 
+            "<td>" + b.writer + "</td>" +
+            "<td>" + b.viewCnt + "</td>");
+
+          tr.appendTo(tbody);
+            // 자식태그와 부모태그 위치 변경
+            // 자식태그 에 부모태그 연결
+            // 많이 씀
+        }
+      } else {
+        alert('데이터 요청 오류');
+      }
+    }
+  };
+  xhr.open("GET", "http://localhost:3000/exam04-3", true);
+  xhr.send();
+});</code></pre>
+
+
+										<h3>8. Method Chaining</h3>
 				
 										<pre>
 											<code></code>
@@ -248,29 +598,87 @@ document.querySelector("#btn1").onclick = () => {
 											<code></code>
 										</pre>
 
-										<br>
-					
-										<h3>1. 태그 찾기</h3>
-					
-											<pre>
-												<code></code>
-											</pre>
-					
-											<pre>
-												<code></code>
-											</pre>
+										<h3>9. Click()</h3>
+				
+										<pre>
+											<code></code>
+										</pre>
+				
+										<pre>
+											<code></code>
+										</pre>
 
-											<br>
+										<h3>10. 리팩토링</h3>
+				
+										<pre>
+											<code></code>
+										</pre>
+				
+										<pre>
+											<code></code>
+										</pre>
+
+										<h3>11. ajax()</h3>
+				
+										<pre>
+											<code></code>
+										</pre>
+				
+										<pre>
+											<code></code>
+										</pre>
+
+										<h3>12. ajax() 코드 정리</h3>
+				
+										<pre>
+											<code></code>
+										</pre>
+				
+										<pre>
+											<code></code>
+										</pre>
+
+										<h3>13. getJSON()</h3>
+				
+										<pre>
+											<code></code>
+										</pre>
+				
+										<pre>
+											<code></code>
+										</pre>
+
+										<h3>14. val(), html()</h3>
+				
+										<pre>
+											<code></code>
+										</pre>
+				
+										<pre>
+											<code></code>
+										</pre>
+
+										<h3>15. submit(), ajax() : POST 요청</h3>
+				
+										<pre>
+											<code></code>
+										</pre>
+				
+										<pre>
+											<code></code>
+										</pre>
+
+										<h3>16. POST()</h3>
+				
+										<pre>
+											<code></code>
+										</pre>
+				
+										<pre>
+											<code></code>
+										</pre>
 					
-											<h3>1. 태그 찾기</h3>
-						
-												<pre>
-													<code></code>
-												</pre>
-						
-												<pre>
-													<code></code>
-												</pre>
+
 				
 				<nav class="blog-nav nav nav-justified my-5">
 				  <a class="nav-link-prev nav-item nav-link rounded-left" href="#">Previous<i class="arrow-prev fas fa-long-arrow-alt-left"></i></a>
