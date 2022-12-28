@@ -591,94 +591,716 @@ $("#btn1").on('click', () => {
 										<h3>8. Method Chaining</h3>
 				
 										<pre>
-											<code></code>
-										</pre>
+<code>jquery-08.js
+function jQuery(selector) {
+  let el = [];
+
+  if (selector.startsWith("<")) {
+    el[0] = document.createElement(selector.substring(1, selector.length - 1));
+
+  } else {
+    let nodeList = document.querySelectorAll(selector);
+    for (let e of nodeList) {
+      el.push(e);
+    }
+  }
+
+  el.append = function(childBox) {
+    for (let parent of el) {
+      for (let child of childBox) {
+        parent.appendChild(child.cloneNode(true));
+      }
+    }
+    for (let child of childBox) {
+      if (child.parentElement != null || child.parentElement != undefined) {
+        child.parentElement.removeChild(child);
+      }
+    }
+    return el;
+  };
+
+  el.appendTo = function(parents) {
+    for (let parent of parents) {
+      for (let child of el) {
+        parent.appendChild(child.cloneNode(true));
+      }
+    }
+    for (let child of el) {
+      if (child.parentElement != null || child.parentElement != undefined) {
+        child.parentElement.removeChild(child);
+      }
+    }
+    return el;
+  };
+
+  el.html = function(content) {
+    for (let e of el) {
+      e.innerHTML = content;
+    }
+    return el;
+  };
+
+  el.on = function(eventName, listener) {
+    for (let e of el) {
+      e.addEventListener(eventName, listener);
+    }
+    return el;
+  };
+  return el;
+}
+
+var $ = jQuery;</code></pre>
 				
 										<pre>
-											<code></code>
-										</pre>
+<code>"use strict"
+
+var tbody = $("tbody");
+
+$("#btn1").on('click', () => {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4) {
+      if (xhr.status == 200) {
+        var arr = JSON.parse(xhr.responseText);
+        for (var b of arr) {
+          $("<tr>")
+            .html("<td>" + b.no + "</td>" + 
+              "<td>" + b.title + "</td>" + 
+              "<td>" + b.writer + "</td>" +
+              "<td>" + b.viewCnt + "</td>")
+            .appendTo(tbody);
+          }
+      } else {
+        alert('데이터 요청 오류');
+      }
+    }
+  };
+  xhr.open("GET", "http://localhost:3000/exam04-3", true);
+  xhr.send();
+});</code></pre>
 
 										<h3>9. Click()</h3>
 				
 										<pre>
-											<code></code>
-										</pre>
+<code>function jQuery(selector) {
+  let el = [];
+
+  if (selector.startsWith("<")) {
+    el[0] = document.createElement(selector.substring(1, selector.length - 1));
+  } else {
+    let nodeList = document.querySelectorAll(selector);
+    for (let e of nodeList) {
+      el.push(e);
+    }
+  }
+
+  el.append = function(childBox) {
+    for (let parent of el) {
+      for (let child of childBox) {
+        parent.appendChild(child.cloneNode(true));
+      }
+    }
+    for (let child of childBox) {
+      if (child.parentElement != null || child.parentElement != undefined) {
+        child.parentElement.removeChild(child);
+      }
+    }
+    return el;
+  };
+
+  el.appendTo = function(parents) { // el = childBox
+    // parents에서 뽑아내
+    for (let parent of parents) {
+      // 자식들이 들어있는 상자에서 자식을 한 개씩 꺼내 복제하여 각 부모의 자식으로 붙인다.
+      for (let child of el) {
+        parent.appendChild(child.cloneNode(true));
+      }
+    }
+
+    for (let child of el) {
+      if (child.parentElement != null || child.parentElement != undefined) {
+        child.parentElement.removeChild(child);
+      }
+    }
+    return el;
+  };
+
+  el.html = function(content) {
+    for (let e of el) {
+      e.innerHTML = content;
+    }
+  return el;
+  };
+
+  el.on = function(eventName, listener) {
+    for (let e of el) {
+      e.addEventListener(eventName, listener);
+    }
+    return el;
+  };
+
+  el.click = function(handler) {
+    for (let e of el) {
+      this.on('click', handler);
+    }
+    return this;
+  };
+  return el;
+}
+
+var $ = jQuery;</code>
+</pre>
 				
 										<pre>
-											<code></code>
-										</pre>
+<code>"use strict"
+
+var tbody = $("tbody");
+
+$("#btn1").click(() => {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4) {
+      if (xhr.status == 200) {
+        var arr = JSON.parse(xhr.responseText);
+        for (var b of arr) {
+          $("<tr>")
+            .html("<td>" + b.no + "</td>" + 
+                  "<td>" + b.title + "</td>" + 
+                  "<td>" + b.writer + "</td>" +
+                  "<td>" + b.viewCnt + "</td>")
+            .appendTo(tbody);
+          }
+      } else {
+        alert('데이터 요청 오류');
+      }
+    }
+  };
+  xhr.open("GET", "http://localhost:3000/exam04-3", true);
+  xhr.send();
+});</code>
+</pre>
 
 										<h3>10. 리팩토링</h3>
 				
 										<pre>
-											<code></code>
-										</pre>
+<code>function jQuery(selector) {
+  return new ElementBox(selector);
+}
+
+function ElementBox(selector) {
+  this.el = [];
+
+  if (selector.startsWith("<")) {
+    this.el[0] = document.createElement(selector.substring(1, selector.length - 1));
+  } else {
+    let nodeList = document.querySelectorAll(selector);
+    for (let e of nodeList) {
+      this.el.push(e);
+    }
+  }
+}
+
+ElementBox.prototype.append = function(childBox) {
+  for (let parent of this.el) {
+    for (let child of childBox.el) {
+      parent.appendChild(child.cloneNode(true));
+    }
+  }
+  for (let child of childBox.el) {
+    if (child.parentElement != null || child.parentElement != undefined) {
+      child.parentElement.removeChild(child);
+    }
+  }
+  return this;
+};
+
+ElementBox.prototype.appendTo = function(parentBox) {
+  // parents에서 넘어오는 것이 elementbox
+  for (let parentTag of parentBox.el) {
+    for (let child of this.el) {
+      // this.el은 childBox 에서 자식들을 꺼내서 parentBox에 붙임
+      parentTag.appendChild(child.cloneNode(true));
+    }
+  }
+  for (let child of this.el) {
+    if (child.parentElement != null || child.parentElement != undefined) {
+      child.parentElement.removeChild(child);
+    }
+  }
+  return this;
+};
+
+ElementBox.prototype.html = function(content) {
+  for (let e of this.el) {
+    e.innerHTML = content;
+  }
+  return this;
+};
+
+ElementBox.prototype.on = function(eventName, listener) {
+  for (let e of this.el) {
+    e.addEventListener(eventName, listener);
+  }
+  return this;
+};
+
+ElementBox.prototype.click = function(handler) {
+  return this.on('click', handler);
+};
+
+var $ = jQuery;</code>
+</pre>
 				
 										<pre>
-											<code></code>
-										</pre>
+<code>"use strict"
+
+var tbody = $("tbody");
+
+$("#btn1").click(() => {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4) {
+      if (xhr.status == 200) {
+        var arr = JSON.parse(xhr.responseText);
+        for (var b of arr) {
+          $("<tr>")
+            .html("<td>" + b.no + "</td>" + 
+                  "<td>" + b.title + "</td>" + 
+                  "<td>" + b.writer + "</td>" +
+                  "<td>" + b.viewCnt + "</td>")
+            .appendTo(tbody);
+        }
+      } else {
+        alert('데이터 요청 오류');
+      }
+    }
+  };
+  xhr.open("GET", "http://localhost:3000/exam04-3", true);
+  xhr.send();
+});</code>
+</pre>
 
 										<h3>11. ajax()</h3>
 				
 										<pre>
-											<code></code>
-										</pre>
+<code>jQuery.ajax = function(settings) {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4) {
+      if (xhr.status == 200) {
+        let result;
+        if (settings.dataType == "json") {
+          // json string --> javascript object (deserialize)
+          result = JSON.parse(xhr.responseText)
+        } else {
+          result = xhr.responseText;
+        }
+        settings.success(result);
+      } else {
+      settings.error();
+      }
+    }
+  };
+  xhr.open(settings.method, settings.url, settings.async);
+  xhr.send();
+};
+
+var $ = jQuery;</code>
+</pre>
 				
 										<pre>
-											<code></code>
-										</pre>
+<code>"use strict"
+
+var tbody = $("tbody");
+
+$("#btn1").click(() => {
+    $.ajax({
+        url: "http://localhost:3000/exam04-3",
+        method: "GET",
+        dataType: "json",
+        async: true,
+        success: (result) => {
+            for (var b of result) {
+                $("<tr>")
+                .html("<td>" + b.no + "</td>" + 
+                        "<td>" + b.title + "</td>" + 
+                        "<td>" + b.writer + "</td>" +
+                        "<td>" + b.viewCnt + "</td>")
+                .appendTo(tbody);
+                }
+        },
+        error: () => {
+            alert('데이터 요청 오류');
+        }
+    });
+});</code>
+</pre>
 
 										<h3>12. ajax() 코드 정리</h3>
 				
 										<pre>
-											<code></code>
-										</pre>
+<code>jQuery.ajax = function(settings) {
+  if (settings.method == undefined) settings.method = "GET";
+  if (settings.async == undefined) settings.async = true;
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4) {
+      if (xhr.status == 200) {
+        if (settings.success == undefined) return;
+        let result;
+        if (settings.dataType == "json") {
+          // json string --> javascript object (deserialize)
+          result = JSON.parse(xhr.responseText)
+        } else {
+          result = xhr.responseText;
+        }
+        settings.success(result);
+      } else {
+        if(settings.error == undefined) return;
+        settings.error();
+      }
+    }
+  };
+  xhr.open(settings.method, settings.url, settings.async);
+  xhr.send();
+};
+
+var $ = jQuery;</code>
+</pre>
 				
 										<pre>
-											<code></code>
-										</pre>
+<code>"use strict"
+
+var tbody = $("tbody");
+
+$("#btn1").click(() => {
+    $.ajax({
+        url: "http://localhost:3000/exam04-3",
+        // method: "GET",
+        dataType: "json",
+        // async: true,
+        success: (result) => {
+            for (var b of result) {
+                $("<tr>")
+                .html("<td>" + b.no + "</td>" + 
+                        "<td>" + b.title + "</td>" + 
+                        "<td>" + b.writer + "</td>" +
+                        "<td>" + b.viewCnt + "</td>")
+                .appendTo(tbody);
+            }
+        }
+    });
+});</code>
+</pre>
 
 										<h3>13. getJSON()</h3>
 				
 										<pre>
-											<code></code>
-										</pre>
+<code>jQuery.getJSON = function(url, success) {
+  jQuery.ajax({
+    url: url,
+    dataType: "json",
+    success: success
+  })
+};
+
+var $ = jQuery;</code>
+</pre>
 				
 										<pre>
-											<code></code>
-										</pre>
+<code>"use strict"
+
+var tbody = $("tbody");
+
+$("#btn1").click(() => {
+  $.getJSON("http://localhost:3000/exam04-3", (result) => {
+    // url: "http://localhost:3000/exam04-3",
+    // dataType: "json",
+    // success: (result) => {
+    for (var b of result) {
+      $("<tr>")
+        .html("<td>" + b.no + "</td>" + 
+          "<td>" + b.title + "</td>" + 
+          "<td>" + b.writer + "</td>" +
+          "<td>" + b.viewCnt + "</td>")
+        .appendTo(tbody);
+    }
+  });
+});</code>
+</pre>
+
+                    <pre>
+<code>"use strict"
+
+var tbody = $("tbody");
+
+$("#btn1").click(() => {
+    $.getJSON("http://localhost:3000/exam04-3", (result) => {
+        result.forEach((b) => {
+            $("<tr>")
+            .html("<td>" + b.no + "</td>" + 
+                    "<td>" + b.title + "</td>" + 
+                    "<td>" + b.writer + "</td>" +
+                    "<td>" + b.viewCnt + "</td>")
+            .appendTo(tbody);
+        });
+    });
+});</code>
+</pre>
 
 										<h3>14. val(), html()</h3>
 				
 										<pre>
-											<code></code>
-										</pre>
+<code>ElementBox.prototype.html = function(content) {
+  if (this.el.length == 0) {
+    return;
+  }
+
+  if (arguments.length > 0) {
+    // 파라미터 값이 있으면 setter로 동작
+    for (let e of this.el) {
+      e.innerHTML = content;
+    }
+    return this;
+
+  } else {
+    // 파라미터 값이 없으면 getter로 동작
+    return this.el[0].innerHTML;
+  }
+
+  
+};
+
+ElementBox.prototype.on = function(eventName, listener) {
+  for (let e of this.el) {
+    e.addEventListener(eventName, listener);
+  }
+  return this;
+};
+
+ElementBox.prototype.click = function(handler) {
+  return this.on('click', handler);
+};
+
+// jQuery 함수는 값을 꺼내는 함수(getter) 따로 넣는 함수(setter) 따로 있지 않다.
+// 한 함수에서 값을 넣고 꺼내는 일을 한다.
+// 파라미터 값이 있으면 값을 넣는 일을 하고
+// 파라미터 값이 없으면 꺼내는 일을 한다.
+ElementBox.prototype.val = function(value) {
+  if (arguments.length > 0) { // 값이 있다면
+    // 값을 설정할 때는 모든 태그에 대해 수행한다.
+    for (let e of this.el) {
+      e.value = value;
+    }
+    return this;
+  } else {
+    // 값을 꺼낼 때는 맨 처음 태그 값만 꺼낸다.
+    return this.el[0].value;
+  }
+};
+
+var $ = jQuery;</code>
+</pre>
 				
 										<pre>
-											<code></code>
-										</pre>
+<code>"use strict"
+
+var tbody = $("tbody");
+
+$("#btn1").click(() => {
+  let email = $("#login-form > input[name='email']").val(); // 꺼내는 용도
+  let password = $("#login-form > input[name='password']").val();
+  console.log(email, password);
+});
+
+$("#btn2").click(() => {
+  let email = $("#login-form > input[name='email']").val(""); // 설정하는 용도
+  let password = $("#login-form > input[name='password']").val(""); // 빈문자열은 초기화
+  console.log(email, password);
+});</code>
+</pre>
 
 										<h3>15. submit(), ajax() : POST 요청</h3>
 				
 										<pre>
-											<code></code>
-										</pre>
+<code>ElementBox.prototype.on = function(eventName, listener) {
+  for (let e of this.el) {
+    e.addEventListener(eventName, listener);
+  }
+  return this;
+};
+
+ElementBox.prototype.submit = function(handler) {
+  return this.on('submit', handler);
+};
+
+
+  if (settings.method == "POST") {
+    xhr.setRequestHeader(
+      "Content-Type", 
+      "application/x-www-form-urlencoded");
+
+    let payload = "";
+    if (settings.data != undefined && settings.data != null) {
+      for (let key in settings.data) {
+        if (payload.length > 0) {
+          payload += "&";
+        }
+        payload += key + "=" + window.encodeURIComponent(settings.data[key]);
+      }
+    }
+    xhr.send(payload);
+
+  } else {
+    xhr.send();
+  }
+};
+
+var $ = jQuery;</code>
+</pre>
 				
 										<pre>
-											<code></code>
-										</pre>
+<code>form id="login-form"
+이메일: input type="email" name="email"br
+암호: input type="password" name="password"br
+button로그인/button
+button type="reset"취소/button
+
+"use strict"
+
+var tbody = $("tbody");
+
+$("#login-form").submit((e) => {
+  $.ajax({
+      url: "http://localhost:3000/login",
+      method: "POST",
+      dataType: "text",
+      data: {
+          email: $("#login-form > input[name='email']").val(),
+          password: $("#login-form > input[name='password']").val()
+      },
+      success: function(result) {
+          console.log(result);
+      }
+  });
+
+  // 따로 AJAX 요청을 할 것이기 때문에,
+  // 웹브라우저가 서버에 요청하는 것은 막는다.
+  e.preventDefault();
+});</code>
+</pre>
 
 										<h3>16. POST()</h3>
 				
 										<pre>
-											<code></code>
-										</pre>
+<code>jQuery.post = function(url, data, success, dataType) {
+  jQuery.ajax({
+    url: url,
+    method: "POST",   // 안적으면 GET
+    dataType: dataType,
+    data: data,
+    success: success
+  });
+};
+
+var $ = jQuery;</code>
+</pre>
 				
 										<pre>
-											<code></code>
-										</pre>
-					
+<code>"use strict"
 
+var tbody = $("tbody");
+
+$("#login-form").submit((e) => {
+    $.post("http://localhost:3000/login", {     // post(url, data, success)
+            email: $("#login-form > input[name='email']").val(),
+            password: $("#login-form > input[name='password']").val()
+        }, (result) => {
+            console.log(result);
+        });
+    // 따로 AJAX 요청을 할 것이기 때문에,
+    // 웹브라우저가 서버에 요청하는 것은 막는다.
+    e.preventDefault();
+});</code>
+</pre>
+                    <h3>16. POST()</h3>
+                      <h5>압축(minify)</h5>
+                      <ul>
+                        <li>전체 소스코드 중 아래와 같은 경우를 제거하는 작업</li>
+                        <ul>
+                          <li>불필요한 줄바꿈, 공백 밑 들여쓰기</li>
+                          <li>짧게 쓸 수 있는 긴 구문(줄일 수 있는 if 구문, 형 변환 축약 등)</li>
+                          <li>스코프 내 사용하지 않는 변수</li>
+                          <li>주석</li>
+                        </ul>
+                        <li>javascript minify 검색 후, JavaScript Minifier & Compressor | Toptal® 들어가서 javascript 파일을 압축한다.</li>
+                      </ul>
+
+                      <pre>
+                        <code>function jQuery(e){return new ElementBox(e)}function ElementBox(e){if(this.el=[],e.startsWith("<"))
+this.el[0]=document.createElement(e.substring(1,e.length-1));else{let t=document.querySelectorAll(e);
+for(let n of t)this.el.push(n)}}ElementBox.prototype.append=function(e){for(let t of this.el)
+for(let n of e.el)t.appendChild(n.cloneNode(!0));for(let o of e.el)(null!=o.parentElement||
+void 0!=o.parentElement)&&o.parentElement.removeChild(o);return this},
+ElementBox.prototype.appendTo=function(e){for(let t of e.el)for(let n of this.el)
+t.appendChild(n.cloneNode(!0));for(let o of this.el)(null!=o.parentElement||void 0!=o.parentElement)
+&&o.parentElement.removeChild(o);return this},ElementBox.prototype.html=function(e)
+{if(0!=this.el.length){if(!(arguments.length>0))return this.el[0].innerHTML;for(let t of this.el)
+t.innerHTML=e;return this}},ElementBox.prototype.on=function(e,t){for(let n of this.el)
+n.addEventListener(e,t);return this},ElementBox.prototype.click=function(e)
+{return this.on("click",e)},ElementBox.prototype.val=function(e){if(0!=this.el.length)
+{if(!(arguments.length>0))return this.el[0].value;for(let t of this.el)t.value=e;return this}},
+ElementBox.prototype.submit=function(e){return this.on("submit",e)},jQuery.ajax=function(e)
+{void 0==e.method&&(e.method="GET"),void 0==e.async&&(e.async=!0);var t=new XMLHttpRequest;
+if(t.onreadystatechange=()=>{if(4==t.readyState){if(200==t.status){if(void 0==e.success)return;
+let n;n="json"==e.dataType?JSON.parse(t.responseText):t.responseText,e.success(n)}
+else{if(void 0==e.error)return;e.error()}}},t.open(e.method,e.url,e.async),"POST"==e.method)
+{t.setRequestHeader("Content-Type","application/x-www-form-urlencoded");let n="";
+if(void 0!=e.data&&null!=e.data)for(let o in e.data)n.length>0&&(n+="&"),
+n+=o+"="+window.encodeURIComponent(e.data[o]);t.send(n)}else t.send()},jQuery.getJSON=function(e,t)
+{jQuery.ajax({url:e,dataType:"json",success:t})},jQuery.post=function(e,t,n,o)
+{jQuery.ajax({url:e,method:"POST",dataType:o,data:t,success:n})};var $=jQuery;</code>
+                      </pre>
+
+                      <pre>
+<code>"use strict"
+
+var tbody = $("tbody");
+
+$("#login-form").submit((e) => {
+    $.post("http://localhost:3000/login", {     // post(url, data, success)
+            email: $("#login-form > input[name='email']").val(),
+            password: $("#login-form > input[name='password']").val()
+        }, (result) => {
+            console.log(result);
+        });
+    e.preventDefault();
+});</code>
+</pre>
+
+                        <h3>16. POST()</h3>
+                        <ul>
+                          <li>기존에 사용하던 jQuery library에 오리지널 jQuery를 연결하여 사용</li>
+                          <li>https://jquery.com/에서 다운로드를 클릭하여, </li>
+                          <ul>
+                            <li>Google CDN</li>
+                            <li>Microsoft CDN</li>
+                            <li>CDNJS CDN</li>
+                            <li>jsDelivr CDN</li>
+                            <p>중 사용하길 원하는 CDN의 주소를 복사하여 html과 연결하여 사용</p>
+                          </ul>
+                        </ul>
+
+                        <h5>CND(content delivery nerwork)</h5>
+                        <ul>
+                          <li>웹사이트의 접속자가 콘텐츠를 다운로드할 때 자동으로 가장 가까운 서버에서 다운로드할 수 있도록 하는 기술</li>
+                          <li>cdn을 사용하면 빠르게 제이쿼리를 로드할 수 O</li>
+                        </ul>
+
+                        <pre>
+                          <code>script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"/script</code>
+                        </pre>
 				
 				<nav class="blog-nav nav nav-justified my-5">
 				  <a class="nav-link-prev nav-item nav-link rounded-left" href="#">Previous<i class="arrow-prev fas fa-long-arrow-alt-left"></i></a>
