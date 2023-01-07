@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
-    <title>Jiyoon's Blog - Hypervisor</title>
+    <title>Jiyoon's Blog - Maven</title>
     
     <!-- Meta -->
     <meta charset="utf-8">
@@ -86,85 +86,42 @@
 	    <article class="blog-post px-3 py-5 p-md-5">
 		    <div class="container single-col-max-width">
 			    <header class="blog-post-header">
-				    <h2 class="title mb-2">Java Concept</h2>
+				    <h2 class="title mb-2">Maven</h2>
 				    <div class="meta mb-3"><span class="date">Published 2 days ago</span><span class="time">5 min read</span>
 						<span class="comment"><a  class="text-link" href="#">4 comments</a></span></div>
 			    </header>
 			    
 			    <div class="blog-post-body">
 				    <figure class="blog-banner">
-				        <a href="https://made4dev.com"></a><img class="img-linux" src="assets/images/blog/Backend/java-concept.png" alt="image" height="400"></a>
-				        <figcaption class="mt-2 text-center image-caption">Image Credit: <a class="theme-link" href="https://velog.io/@codemcd/JAVA-JVM%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%B4%EB%A9%B0-%EC%9E%90%EB%B0%94-%EC%BD%94%EB%93%9C%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%8B%A4%ED%96%89%ED%95%98%EB%8A%94-%EA%B2%83%EC%9D%B8%EA%B0%80" target="_blank">[JAVA] JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가.</a></figcaption>
+				        <img class="img-linux" src="assets/images/blog/Backend/java/maven/maven.png" alt="image">
+				        <figcaption class="mt-2 text-center image-caption">Image Credit: <a class="theme-link" href="https://ko.wikipedia.org/wiki/%EC%95%84%ED%8C%8C%EC%B9%98_%EB%A9%94%EC%9D%B4%EB%B8%90" target="_blank">아파치 메이븐</a></figcaption>
 				    </figure>
-				    <h3>Java란?</h3>
+				    <h3>Gradle이란?</h3>
 						<ul>
-							<li>웹 애플리케이션 코딩에 널리 사용되는 프로그래밍 언어</li>
-							<li>그 자체로 플랫폼으로 사용할 수 있는 다중 플랫폼, 객체 지향 및 네트워크 중심 언어</li>
-							<li>모든 것을 코딩하기 위한 빠르고 안전하며 안정적인 프로그래밍 언어</li>
-							<li>지역화된 분산 소프트웨어 구축</li>
-							<li>WORA(Write Once and Run Anywhere)라고도 함</li>
+							<li>그루비(Groovy)를 기반으로 한 빌드 도구</li>
+							<li>Ant와 Maven과 같은 이전 세대 빌드 도구의 단점을 보완하고 장점을 취합하여 만든 오픈소스로 공개된 빌드 도구</li>
 						</ul>
 
-					<br>
-				    
-				    <h3>Java 프로그래밍 용도</h3>
-							<h5>1. 게임 개발</h5>
-								<ul>
-									<li>기계 학습이나 가상 현실과 같은 첨단 기술이 통합된 최신 게임 작성</li>
-								</ul>
-							<h5>2. 클라우드 컴퓨팅</h5>
-								<ul>
-									<li>분산 클라우드 기반 애플리케이션에 적합</li>
-									<li>클라우드 공급자는 다양한 기본 플랫폼에서 프로그램을 실행하기 위해 Java 언어 선택</li>
-								</ul>
-							<h5>3. 빅 데이터</h5>
-							<ul>
-								<li>복잡한 데이터 집합과 방대한 양의 실시간 데이터를 처리할 수 있는 데이터 처리 엔진에 사용</li>
-							</ul>
-							<h5>4. 인공 지능</h5>
-								<ul>
-									<li>기계 학습 라이브러리의 발전소 역할</li>
-									<li>자연어 처리 및 딥 러닝과 같은 인공 지능 애플리케이션 개발에 적합한 안정성과 속도를 갖춤</li>
-								</ul>
-							<h5>5. 사물 인터넷</h5>
-								<ul>
-									<li>인터넷에 독립적으로 연결할 수 있는 엣지 디바이스의 센서 및 하드웨어 프로그래밍에 사용</li>
-								</ul>
+						<h5>Ant</h5>
+						<ul>
+							<li>XML 기반으로 빌드 스크립트를 작성</li>
+							<li>자유롭게 빌드 단위 지정</li>
+							<li>간단하고 사용하기 쉬움</li>
+							<li>유연하지만 프로젝트가 방대해지는 경우 스크립트 관리나 빌드 과정이 복잡해짐</li>
+							<li>생명주기(Lifecycle)을 갖지 않아 각각의 결과물에 대한 의존관계 등을 정의해야 함</li>
+						</ul>
 
-						<br>
+						<h5>Maven</h5>
+						<ul>
+							<li>XML 기반으로 작성</li>
+							<li>생명주기(Lifecycle)와 프로젝트 객체 모델(POM, Project Object Model)이란 개념 도입</li>
+							<li>Ant의 장황한 빌드 스크립트 개선</li>
+							<li>pom.xml에 필요한 라이브러리를 선언하면 자동으로 해당 프로젝트로 불러와 편리</li>
+							<li>상대적으로 학습 장벽 ↑</li>
+							<li>라이브러리가 서로 의존하는 경우 복잡해질 수 O</li>
+						</ul>
 
-						<h3>Java가 인기있는 이유</h3>
-							<h5>고품질 학습 리소스</h5>
-								<ul>
-									<li>오랫동안 사용되어 왔기 때문에 새로운 프로그래머가 사용할 수 있는 학습 리소스 多</li>
-								</ul>
-							<h5>기본 제공 함수 및 라이브러리</h5>
-								<ul>
-									<li>개발자가 처음부터 모든 새로운 기능을 작성할 필요 X</li>
-									<li>다양한 애플리케이션을 개발하기 위해 기본 제공 기능과 라이브러리로 구성된 풍부한 에코시스템 제공</li>
-								</ul>
-							<h5>적극적인 커뮤니티 지원</h5>
-							<ul>
-								<li>코딩 문제 발생 시 개발자를 지원할 수 있는 많은 활성 사용자와 커뮤니티 O</li>
-								<li>Java 플랫폼 소프트웨어도 정기적으로 유지 관리되고 업데이트됨</li>
-							</ul>
-							<h5>고품질 개발 도구</h5>
-							<ul>
-								<li>자동화 편집, 디버깅, 테스트, 배포 및 변경 관리를 지원하는 다양한 도구 제공</li>
-								<li>Java 프로그래밍을 시간과 비용 효율적으로 만듦</li>
-							</ul>
-							<h5>플랫폼 독립적</h5>
-							<ul>
-								<li>Windows, Linux, iOS 또는 Android와 같은 기본 플랫폼에서 실행 가능</li>
-								<li>여러 디바이스에서 애플리케이션을 실행하려는 오늘날의 환경에서 특히 유용</li>
-							</ul>
-							<h5>보안</h5>
-							<ul>
-								<li>신뢰할 수 없는 코드가 호스트 시스템을 바이러스에 감염시킬 수 X</li>
-								<li>하드 드라이브에서 파일을 읽거나 쓸 수 X</li>
-								<li>Java의 보안 수준 및 제한 사항도 고도로 구성 가능</li>
-							</ul>
-
+						<h3>Gradle의 특징</h3>
 
 				
 				<nav class="blog-nav nav nav-justified my-5">
